@@ -1,24 +1,24 @@
-Entrega de trabajos
-Cuadros relacionales
-DIGAGRAMA ENTIDAD RELACION
-DIAGRAMA DE CLASES
-DIAGRAMA DE DISTRIBUCION
-CROQUIS DE HTML,BOOTSTRAP,CSS
+# PROYECTO GARAGE EVIL
 
-PROYECTO GARAGE EVIL 
-colores dela pagina
-módulos a realizar
-login:
--SEGUN SU ROL(cliente,admin,empleado)
-INDEX:
-MOTOS
-AGENDAMIENTOS:
--COTIZACIONES
-EMPLEADO
-USUARIOS
-CATEGORIA
-SUBCATEGORIA
-REPUESTOS
+## Entrega de trabajos
+- Cuadros relacionales
+- Diagrama Entidad Relación
+- Diagrama de Clases
+- Diagrama de Distribución
+- Croquis de HTML, Bootstrap, CSS
 
+## Diseño
+- **Colores de la página:
 
-
+## Módulos a realizar
+- **Login:**
+  - Según su rol (Cliente, Admin, Empleado)
+- **Index:**
+  - Motos
+- **Agendamientos:**
+  - Cotizaciones
+- **Empleado**
+- **Usuarios**
+- **Categoría**
+- **Subcategoría**
+- **Repuestos**
