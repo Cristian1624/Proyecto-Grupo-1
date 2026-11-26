@@ -1,0 +1,173 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías | Garage Evil</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- SIDEBAR ADMINISTRADOR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="brand-logo">
+                    <span class="brand-badge"></span>
+                    <span>GARAGE</span> EVIL
+                </a>
+            </div>
+
+            <div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color);">
+                <div class="user-chip">
+                    <div class="avatar-square">AD</div>
+                    <div>
+                        <div class="user-chip-name">Administrador</div>
+                        <div class="user-chip-role">admin@garageevil.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link"><span class="nav-code">PG</span> PANEL GENERAL</a>
+                <a href="#" class="sidebar-link"><span class="nav-code">OP</span> OPERACIONES</a>
+                <a href="clientes.html" class="sidebar-link"><span class="nav-code">CL</span> CLIENTES</a>
+                <a href="motocicletas.html" class="sidebar-link"><span class="nav-code">MT</span> MOTOCICLETAS</a>
+                <a href="citas.html" class="sidebar-link"><span class="nav-code">CI</span> CITAS</a>
+                <a href="servicios.html" class="sidebar-link"><span class="nav-code">SE</span> SERVICIOS</a>
+                <a href="categorias.html" class="sidebar-link active"><span class="nav-code">CA</span> CATEGORÍAS</a>
+                <a href="sub_cateogorias.html" class="sidebar-link"><span class="nav-code">SC</span> SUBCATEGORÍAS</a>
+                <a href="repuestos.html" class="sidebar-link"><span class="nav-code">RP</span> REPUESTOS</a>
+                <a href="reportes.html" class="sidebar-link"><span class="nav-code">RE</span> REPORTES</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link"><span class="nav-code">←</span> SALIR</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <span style="font-weight:600; font-size:1.05rem;">Categorías</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:1.25rem;">
+                    <div style="text-align:right; line-height:1.2;">
+                        <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase;">SÁBADO</div>
+                        <div style="font-size:0.85rem; font-weight:600;">26 Sep 2026</div>
+                    </div>
+                    <span class="badge badge-purple">4</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- Encabezado con botón + CATEGORÍA -->
+                <div class="page-header-row">
+                    <div>
+                        <span class="eyebrow">GESTIÓN DE TALLER</span>
+                        <h1>CATEGORÍAS</h1>
+                        <p>Organiza el catálogo de servicios y repuestos.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="document.getElementById('catDrawer').classList.add('open')">+ CATEGORÍA</button>
+                </div>
+
+                <!-- Tabla de Categorías -->
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>CÓDIGO</th>
+                                <th>CATEGORÍA</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>REFERENCIAS</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catTableBody">
+                            <tr>
+                                <td class="text-purple"><strong>CAT-01</strong></td>
+                                <td><strong>Motor</strong></td>
+                                <td class="text-muted">Reparación y componentes internos</td>
+                                <td class="text-muted">18</td>
+                                <td class="text-muted">Activa</td>
+                            </tr>
+                            <tr>
+                                <td class="text-purple"><strong>CAT-02</strong></td>
+                                <td><strong>Lubricación</strong></td>
+                                <td class="text-muted">Aceites, filtros y aditivos</td>
+                                <td class="text-muted">24</td>
+                                <td class="text-muted">Activa</td>
+                            </tr>
+                            <tr>
+                                <td class="text-purple"><strong>CAT-03</strong></td>
+                                <td><strong>Frenos</strong></td>
+                                <td class="text-muted">Pastillas, discos y líquidos</td>
+                                <td class="text-muted">16</td>
+                                <td class="text-muted">Activa</td>
+                            </tr>
+                            <tr>
+                                <td class="text-purple"><strong>CAT-04</strong></td>
+                                <td><strong>Transmisión</strong></td>
+                                <td class="text-muted">Cadenas, piñones y embragues</td>
+                                <td class="text-muted">12</td>
+                                <td class="text-muted">Activa</td>
+                            </tr>
+                            <tr>
+                                <td class="text-purple"><strong>CAT-05</strong></td>
+                                <td><strong>Eléctrico</strong></td>
+                                <td class="text-muted">Baterías, luces y sensores</td>
+                                <td class="text-muted">21</td>
+                                <td class="text-muted">Activa</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- DRAWER NUEVA CATEGORÍA -->
+    <div id="catDrawer" class="drawer-backdrop" onclick="if(event.target===this) this.classList.remove('open')">
+        <div class="drawer-panel">
+            <div>
+                <span class="eyebrow">CATÁLOGO DE TALLER</span>
+                <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Nueva Categoría</h2>
+                <form onsubmit="agregarCategoria(event)">
+                    <div class="form-group">
+                        <label class="form-label">Código</label>
+                        <input id="newCatCode" type="text" class="form-control" value="CAT-06" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nombre de la Categoría</label>
+                        <input id="newCatName" type="text" class="form-control" placeholder="Ej. Suspensión" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Descripción</label>
+                        <textarea id="newCatDesc" class="form-control" rows="3" placeholder="Breve descripción de los repuestos o servicios..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Guardar Categoría</button>
+                </form>
+            </div>
+            <button class="btn btn-outline btn-block" onclick="document.getElementById('catDrawer').classList.remove('open')">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarCategoria(e) {
+            e.preventDefault();
+            const code = document.getElementById('newCatCode').value;
+            const name = document.getElementById('newCatName').value;
+            const desc = document.getElementById('newCatDesc').value;
+            const row = `<tr>
+                <td class="text-purple"><strong>${code}</strong></td>
+                <td><strong>${name}</strong></td>
+                <td class="text-muted">${desc}</td>
+                <td class="text-muted">0</td>
+                <td class="text-muted">Activa</td>
+            </tr>`;
+            document.getElementById('catTableBody').insertAdjacentHTML('beforeend', row);
+            document.getElementById('catDrawer').classList.remove('open');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
