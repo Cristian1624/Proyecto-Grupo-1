@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel General Admin | Garage Evil</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- SIDEBAR ADMINISTRADOR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="brand-logo">
+                    <span class="brand-badge">GE</span>
+                    <span>GARAGE</span> EVIL
+                </a>
+            </div>
+
+            <!-- Tarjeta Administrador -->
+            <div style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color);">
+                <div class="user-chip">
+                    <div class="avatar-square">AD</div>
+                    <div>
+                        <div class="user-chip-name">Administrador</div>
+                        <div class="user-chip-role">admin@garageevil.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link active"><span class="nav-code">PG</span> PANEL GENERAL</a>
+                <a href="clientes.html" class="sidebar-link"><span class="nav-code">CL</span> CLIENTES</a>
+                <a href="motocicletas.html" class="sidebar-link"><span class="nav-code">MT</span> MOTOCICLETAS</a>
+                <a href="citas.html" class="sidebar-link"><span class="nav-code">CI</span> CITAS</a>
+                <a href="servicios.html" class="sidebar-link"><span class="nav-code">SE</span> SERVICIOS</a>
+                <a href="categorias.html" class="sidebar-link"><span class="nav-code">CA</span> CATEGORÍAS</a>
+                <a href="sub_cateogorias.html" class="sidebar-link"><span class="nav-code">SC</span> SUBCATEGORÍAS</a>
+                <a href="repuestos.html" class="sidebar-link"><span class="nav-code">RP</span> REPUESTOS</a>
+                <a href="reportes.html" class="sidebar-link"><span class="nav-code">RE</span> REPORTES</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link"><span class="nav-code">←</span> SALIR</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <span style="font-weight:600; font-size:1.05rem;">Panel General</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:1.25rem;">
+                    <div style="text-align:right; line-height:1.2;">
+                        <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase;">SÁBADO</div>
+                        <div style="font-size:0.85rem; font-weight:600;">26 Sep 2026</div>
+                    </div>
+                    <span class="badge badge-purple">4 Notificaciones</span>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- 5 KPIs SUPERIORES -->
+                <div class="kpi-grid-5">
+                    <div class="kpi-card-neutral">
+                        <div class="kpi-label">CITAS HOY</div>
+                        <div class="kpi-value">4</div>
+                        <div class="kpi-sub">1 completadas</div>
+                    </div>
+                    <div class="kpi-card-neutral">
+                        <div class="kpi-label">PENDIENTES</div>
+                        <div class="kpi-value">4</div>
+                        <div class="kpi-sub">Requieren atención</div>
+                    </div>
+                    <div class="kpi-card-neutral">
+                        <div class="kpi-label">EN PROGRESO</div>
+                        <div class="kpi-value">1</div>
+                        <div class="kpi-sub">En taller ahora</div>
+                    </div>
+                    <div class="kpi-card-neutral">
+                        <div class="kpi-label">COMPLETADAS</div>
+                        <div class="kpi-value">2</div>
+                        <div class="kpi-sub">Este mes</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">INGRESOS MES</div>
+                        <div class="kpi-value text-purple">$510.000</div>
+                        <div class="kpi-sub">Servicios completados</div>
+                    </div>
+                </div>
+
+                <!-- BLOQUE INFERIOR DIVIDIDO -->
+                <div class="dashboard-split">
+                    <!-- Citas de Hoy -->
+                    <div class="panel-box">
+                        <div class="panel-box-header">
+                            <h2 class="panel-box-title">CITAS DE HOY — 2026-09-26</h2>
+                            <a href="citas.html" class="text-purple" style="font-size:0.78rem; font-weight:700;">VER TODAS →</a>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-left">
+                                <span class="text-muted" style="font-size:0.85rem;">08:00</span>
+                                <div>
+                                    <div style="font-weight:600;">Carlos Morales</div>
+                                    <div class="text-muted" style="font-size:0.82rem;">Honda CB500F 2022 · Mantenimiento General</div>
+                                </div>
+                            </div>
+                            <span class="badge badge-purple">• EN PROGRESO</span>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-left">
+                                <span class="text-muted" style="font-size:0.85rem;">09:30</span>
+                                <div>
+                                    <div style="font-weight:600;">Laura Quintero</div>
+                                    <div class="text-muted" style="font-size:0.82rem;">Yamaha MT-07 2023 · Reparación de Motor</div>
+                                </div>
+                            </div>
+                            <span class="badge badge-warning">• PENDIENTE</span>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-left">
+                                <span class="text-muted" style="font-size:0.85rem;">11:00</span>
+                                <div>
+                                    <div style="font-weight:600;">Felipe Cárdenas</div>
+                                    <div class="text-muted" style="font-size:0.82rem;">KTM Duke 390 2021 · Frenos y Suspensión</div>
+                                </div>
+                            </div>
+                            <span class="badge badge-success">• COMPLETADO</span>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-left">
+                                <span class="text-muted" style="font-size:0.85rem;">14:00</span>
+                                <div>
+                                    <div style="font-weight:600;">Valeria Ruiz</div>
+                                    <div class="text-muted" style="font-size:0.82rem;">Suzuki V-Strom 650 2022 · Diagnóstico Digital</div>
+                                </div>
+                            </div>
+                            <span class="badge badge-warning">• PENDIENTE</span>
+                        </div>
+                    </div>
+
+                    <!-- Resumen de Estados y Mecánicos -->
+                    <div class="panel-box">
+                        <div class="panel-box-header">
+                            <h2 class="panel-box-title">RESUMEN DE ESTADOS</h2>
+                        </div>
+
+                        <div class="progress-group">
+                            <div class="progress-header"><span>PENDIENTE</span><span style="color:var(--status-warning-text);">4</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width:55%; background:var(--status-warning-text);"></div></div>
+                        </div>
+                        <div class="progress-group">
+                            <div class="progress-header"><span>EN PROGRESO</span><span class="text-purple">1</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width:20%; background:var(--purple-primary);"></div></div>
+                        </div>
+                        <div class="progress-group">
+                            <div class="progress-header"><span>COMPLETADO</span><span style="color:var(--status-success-text);">2</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width:35%; background:var(--status-success-text);"></div></div>
+                        </div>
+                        <div class="progress-group" style="margin-bottom:2rem;">
+                            <div class="progress-header"><span>CANCELADO</span><span style="color:var(--status-danger-text);">1</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width:15%; background:var(--status-danger-text);"></div></div>
+                        </div>
+
+                        <div class="panel-box-header" style="margin-top:1rem;">
+                            <h3 class="panel-box-title" style="font-size:0.92rem;">MECÁNICOS ACTIVOS</h3>
+                        </div>
+
+                        <div class="activity-item" style="padding:0.65rem 0;">
+                            <div style="display:flex; align-items:center; gap:0.65rem;">
+                                <span class="badge badge-purple">JP</span>
+                                <span style="font-size:0.88rem;">Juan Pérez</span>
+                            </div>
+                            <span class="text-muted" style="font-size:0.8rem;">2 citas</span>
+                        </div>
+                        <div class="activity-item" style="padding:0.65rem 0;">
+                            <div style="display:flex; align-items:center; gap:0.65rem;">
+                                <span class="badge badge-purple">MG</span>
+                                <span style="font-size:0.88rem;">Mario Gómez</span>
+                            </div>
+                            <span class="text-muted" style="font-size:0.8rem;">1 cita</span>
+                        </div>
+                        <div class="activity-item" style="padding:0.65rem 0;">
+                            <div style="display:flex; align-items:center; gap:0.65rem;">
+                                <span class="badge badge-purple">LT</span>
+                                <span style="font-size:0.88rem;">Luis Torres</span>
+                            </div>
+                            <span class="text-muted" style="font-size:0.8rem;">2 citas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

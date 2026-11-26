@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Empleado | Garage Evil</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- SIDEBAR EMPLEADO -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="brand-logo">
+                    <span class="brand-badge">GE</span>
+                    <span>GARAGE</span> EVIL
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" onclick="switchEmpTab('jornada', this)">
+                    <span class="nav-code">JO</span> MI JORNADA
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchEmpTab('citas', this)">
+                    <span class="nav-code">CI</span> CITAS ASIGNADAS
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchEmpTab('reportar', this)">
+                    <span class="nav-code">OT</span> REPORTAR TRABAJO
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchEmpTab('inventario', this)">
+                    <span class="nav-code">IN</span> CONSULTAR INVENTARIO
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchEmpTab('perfil', this)">
+                    <span class="nav-code">PE</span> MI PERFIL
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" class="sidebar-link"><span class="nav-code">←</span> CERRAR SESIÓN</a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <div></div>
+                <div class="user-chip">
+                    <div class="user-chip-info">
+                        <div class="user-chip-name">Juan Pérez</div>
+                        <div class="user-chip-role">Mecánico senior · En turno</div>
+                    </div>
+                    <div class="avatar-circle">JP</div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- ================= SECCIÓN 1: MI JORNADA ================= -->
+                <section id="emp-jornada" class="view-section active">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem; margin-bottom:2rem;">
+                        <div>
+                            <span class="eyebrow">PORTAL DE EMPLEADO</span>
+                            <h1 style="font-size: 2.75rem;">MI JORNADA</h1>
+                        </div>
+                        <div class="shift-badge">TURNO ACTIVO · 08:00–18:00</div>
+                    </div>
+
+                    <!-- 4 KPIs EN CUADRÍCULA 2x2 -->
+                    <div class="kpi-grid-2x2">
+                        <div class="kpi-card-neutral">
+                            <div class="kpi-label">ASIGNADAS HOY</div>
+                            <div class="kpi-value">3</div>
+                            <div class="kpi-sub">3 pendientes</div>
+                        </div>
+                        <div class="kpi-card-neutral accent-top">
+                            <div class="kpi-label">EN PROCESO</div>
+                            <div class="kpi-value text-purple">1</div>
+                            <div class="kpi-sub">Trabajo actual</div>
+                        </div>
+                        <div class="kpi-card-neutral">
+                            <div class="kpi-label">FINALIZADAS</div>
+                            <div class="kpi-value">1</div>
+                            <div class="kpi-sub">En esta jornada</div>
+                        </div>
+                        <div class="kpi-card-neutral">
+                            <div class="kpi-label">HORAS REGISTRADAS</div>
+                            <div class="kpi-value">4:35</div>
+                            <div class="kpi-sub">De 9 horas</div>
+                        </div>
+                    </div>
+
+                    <!-- AGENDA DE HOY -->
+                    <h2 class="panel-box-title" style="margin-bottom:1rem;">AGENDA DE HOY</h2>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Orden</th>
+                                    <th>Hora</th>
+                                    <th>Cliente / Moto</th>
+                                    <th>Servicio</th>
+                                    <th>Estado</th>
+                                    <th>Acción / Reporte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-purple"><strong>OT-1048</strong></td>
+                                    <td>08:00</td>
+                                    <td>
+                                        <div style="font-weight:600;">Carlos Morales</div>
+                                        <div class="text-muted" style="font-size:0.8rem;">Honda CB500F 2022 · ABC-123</div>
+                                    </td>
+                                    <td>Mantenimiento general</td>
+                                    <td><span id="badge-1048" class="badge badge-purple">EN PROCESO</span></td>
+                                    <td style="display:flex; gap:0.5rem; align-items:center;">
+                                        <select class="status-select" onchange="actualizarEstado('1048', this.value)">
+                                            <option value="En proceso" selected>En proceso</option>
+                                            <option value="Pendiente">Pendiente</option>
+                                            <option value="Completado">Completado</option>
+                                        </select>
+                                        <button class="btn btn-purple-outline btn-sm" onclick="abrirReporte('OT-1048', 'Carlos Morales - Honda CB500F')">Reportar</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-purple"><strong>OT-1051</strong></td>
+                                    <td>10:30</td>
+                                    <td>
+                                        <div style="font-weight:600;">Laura Quintero</div>
+                                        <div class="text-muted" style="font-size:0.8rem;">Yamaha MT-07 2023 · XYZ-456</div>
+                                    </td>
+                                    <td>Diagnóstico de encendido</td>
+                                    <td><span id="badge-1051" class="badge badge-warning">PENDIENTE</span></td>
+                                    <td style="display:flex; gap:0.5rem; align-items:center;">
+                                        <select class="status-select" onchange="actualizarEstado('1051', this.value)">
+                                            <option value="Pendiente" selected>Pendiente</option>
+                                            <option value="En proceso">En proceso</option>
+                                            <option value="Completado">Completado</option>
+                                        </select>
+                                        <button class="btn btn-purple-outline btn-sm" onclick="abrirReporte('OT-1051', 'Laura Quintero - Yamaha MT-07')">Reportar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 2: REPORTAR TRABAJO ================= -->
+                <section id="emp-reportar" class="view-section">
+                    <span class="eyebrow">BITÁCORA TÉCNICA</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">REPORTAR AVANCE DE ORDEN</h1>
+                    <div class="panel-box" style="max-width: 720px;">
+                        <form onsubmit="event.preventDefault(); alert('Avance técnico guardado y notificado al cliente.');">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Orden de Trabajo</label>
+                                    <select id="rep-orden-select" class="form-control">
+                                        <option>OT-1048 — Carlos Morales (Honda CB500F)</option>
+                                        <option>OT-1051 — Laura Quintero (Yamaha MT-07)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Nuevo Estado</label>
+                                    <select class="form-control">
+                                        <option>En proceso</option>
+                                        <option>Esperando repuesto</option>
+                                        <option>Completado y listo para entrega</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Repuesto utilizado del inventario</label>
+                                    <select class="form-control">
+                                        <option>Ninguno</option>
+                                        <option>Filtro de Aceite Original Honda (Stock: 14)</option>
+                                        <option>Aceite Motul 7100 10W40 1L (Stock: 28)</option>
+                                        <option>Bujía Iridium NGK (Stock: 19)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Tiempo invertido (horas)</label>
+                                    <input type="number" step="0.5" class="form-control" value="1.5">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Descripción del trabajo realizado (visible para cliente y admin)</label>
+                                <textarea class="form-control" rows="4" placeholder="Detalla el diagnóstico, piezas reemplazadas y pruebas realizadas..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Reporte Técnico</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 3: CITAS ASIGNADAS ================= -->
+                <section id="emp-citas" class="view-section">
+                    <span class="eyebrow">PROGRAMACIÓN SEMANAL</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">CITAS ASIGNADAS</h1>
+                    <div class="panel-box">
+                        <p class="text-muted">Tienes 3 órdenes asignadas para hoy y 4 programadas para mañana.</p>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 4: CONSULTAR INVENTARIO ================= -->
+                <section id="emp-inventario" class="view-section">
+                    <span class="eyebrow">BODEGA DE REPUESTOS</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">CONSULTAR INVENTARIO</h1>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr><th>Código</th><th>Repuesto</th><th>Categoría</th><th>Stock Disponible</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="text-purple">REP-001</td><td>Aceite Motul 7100 10W40</td><td>Lubricantes</td><td><span class="badge badge-success">28 unidades</span></td></tr>
+                                <tr><td class="text-purple">REP-014</td><td>Pastillas Freno Delantero CB500</td><td>Frenos</td><td><span class="badge badge-warning">3 unidades</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 5: MI PERFIL ================= -->
+                <section id="emp-perfil" class="view-section">
+                    <span class="eyebrow">FICHA DE MECÁNICO</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">MI PERFIL</h1>
+                    <div class="panel-box" style="max-width:600px;">
+                        <p><strong>Nombre:</strong> Juan Pérez</p>
+                        <p class="text-muted"><strong>Especialidad:</strong> Mecánica General e Inyección Electrónica</p>
+                        <p class="text-muted"><strong>Horario:</strong> Lunes a Sábado · 08:00 – 18:00</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchEmpTab(tabId, el) {
+            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+            document.getElementById('emp-' + tabId).classList.add('active');
+            if (el) el.classList.add('active');
+        }
+
+        function actualizarEstado(id, nuevoEstado) {
+            const badge = document.getElementById('badge-' + id);
+            badge.textContent = nuevoEstado.toUpperCase();
+            badge.className = 'badge ' + (
+                nuevoEstado === 'Completado' ? 'badge-success' :
+                nuevoEstado === 'En proceso' ? 'badge-purple' : 'badge-warning'
+            );
+        }
+
+        function abrirReporte(orden, detalle) {
+            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('emp-reportar').classList.add('active');
+        }
+    </script>
+</body>
+</html>

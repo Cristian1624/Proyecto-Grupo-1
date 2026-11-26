@@ -843,4 +843,321 @@ select.form-control {
     .hero-buttons .btn {
         width: 100%;
     }
+
+    /* ==========================================================================
+   11. ESTILOS ESPECÍFICOS: PORTALES GARAGE EVIL (CLIENTE, ADMIN Y EMPLEADO)
+   ========================================================================== */
+
+/* Logo con isotipo morado */
+.brand-badge {
+    width: 34px;
+    height: 34px;
+    background-color: var(--purple-primary);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    box-shadow: 0 0 14px var(--purple-glow);
+}
+
+/* Tarjeta de perfil en Sidebar (Admin) y Topbar (Cliente / Empleado) */
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-chip-info {
+    text-align: right;
+    line-height: 1.25;
+}
+
+.user-chip-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.user-chip-role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--purple-primary);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-square {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: var(--purple-primary);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Códigos de 2 letras en el menú lateral (IN, CI, MT, PG, JO...) */
+.nav-code {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    width: 24px;
+    text-align: left;
+    transition: var(--transition);
+}
+
+.sidebar-link.active .nav-code,
+.sidebar-link:hover .nav-code {
+    color: var(--purple-light);
+}
+
+/* Variantes de Grid para KPIs */
+.kpi-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card-neutral {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.kpi-card-neutral.accent-top {
+    border-top: 2px solid var(--purple-primary);
+}
+
+.kpi-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+}
+
+/* Tarjeta destacada de Motocicleta Principal (Portal Cliente) */
+.moto-banner {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.moto-banner-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--text-white);
+    margin: 0.25rem 0;
+}
+
+.moto-stats {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.moto-stat-item {
+    text-align: right;
+}
+
+.moto-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    color: var(--text-white);
+}
+
+.moto-stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* Listas de actividad y citas del día */
+.panel-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem;
+}
+
+.panel-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-box-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: var(--text-white);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.activity-date {
+    min-width: 72px;
+}
+
+.activity-date strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--purple-light);
+}
+
+.activity-date span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Split Layout Dashboard Admin (Citas de hoy + Resumen de estados) */
+.dashboard-split {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Barras de progreso (Resumen de Estados Admin) */
+.progress-group {
+    margin-bottom: 1rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin-bottom: 0.35rem;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-input);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 2px;
+}
+
+/* Badge de turno activo y selector inline de empleado */
+.shift-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    background-color: var(--status-success-bg);
+    color: var(--status-success-text);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+.status-select {
+    background-color: var(--bg-input);
+    color: var(--text-white);
+    border: 1px solid var(--border-light);
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--purple-primary);
+}
+
+/* Control de pestañas internas SPA */
+.view-section {
+    display: none;
+}
+
+.view-section.active {
+    display: block;
+}
+
+@media (max-width: 1100px) {
+    .kpi-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-split {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .kpi-grid-5,
+    .kpi-grid-2x2 {
+        grid-template-columns: 1fr;
+    }
+}
 }

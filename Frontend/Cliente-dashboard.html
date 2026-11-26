@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal del Cliente | Garage Evil</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- SIDEBAR CLIENTE -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="brand-logo">
+                    <span class="brand-badge">GE</span>
+                    <span>GARAGE</span> EVIL
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" onclick="switchTab('inicio', this)">
+                    <span class="nav-code">IN</span> INICIO
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchTab('citas', this)">
+                    <span class="nav-code">CI</span> MIS CITAS Y AGENDAR
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchTab('cotizar', this)">
+                    <span class="nav-code">CO</span> COTIZAR SERVICIO
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchTab('moto', this)">
+                    <span class="nav-code">MT</span> MI MOTOCICLETA
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchTab('historial', this)">
+                    <span class="nav-code">HI</span> HISTORIAL
+                </a>
+                <a href="#" class="sidebar-link" onclick="switchTab('perfil', this)">
+                    <span class="nav-code">PE</span> MI PERFIL
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" class="sidebar-link">
+                    <span class="nav-code">←</span> CERRAR SESIÓN
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <div>
+                    <span class="text-muted" style="font-size: 0.82rem;">Bienvenido de nuevo al taller</span>
+                </div>
+                <div class="user-chip">
+                    <div class="user-chip-info">
+                        <div class="user-chip-name">Carlos Morales</div>
+                        <div class="user-chip-role">Cliente activo</div>
+                    </div>
+                    <div class="avatar-circle">CM</div>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- ================= SECCIÓN 1: INICIO ================= -->
+                <section id="tab-inicio" class="view-section active">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem; margin-bottom:2rem;">
+                        <div>
+                            <span class="eyebrow">PORTAL DEL CLIENTE</span>
+                            <h1 style="font-size: 2.75rem;">INICIO</h1>
+                        </div>
+                        <div style="display:flex; gap:0.75rem;">
+                            <button class="btn btn-outline btn-sm" onclick="switchTabByName('cotizar')">Cotizar Servicio</button>
+                            <button class="btn btn-primary btn-sm" onclick="switchTabByName('citas')">+ Agendar Cita</button>
+                        </div>
+                    </div>
+
+                    <!-- KPIs -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-label">PRÓXIMA CITA</div>
+                            <div class="kpi-value text-purple">26 SEP</div>
+                            <div class="kpi-sub">08:00 AM</div>
+                        </div>
+                        <div class="kpi-card-neutral">
+                            <div class="kpi-label">SERVICIOS REALIZADOS</div>
+                            <div class="kpi-value">08</div>
+                            <div class="kpi-sub">Desde 2022</div>
+                        </div>
+                        <div class="kpi-card-neutral">
+                            <div class="kpi-label">PUNTOS EVIL</div>
+                            <div class="kpi-value">1.240</div>
+                            <div class="kpi-sub">Nivel Rider</div>
+                        </div>
+                    </div>
+
+                    <!-- MOTOCICLETA PRINCIPAL -->
+                    <div class="moto-banner">
+                        <div>
+                            <span class="eyebrow" style="margin-bottom:0.2rem;">MOTOCICLETA PRINCIPAL</span>
+                            <div class="moto-banner-title">HONDA CB500F</div>
+                            <p class="text-muted" style="font-size: 0.88rem;">Modelo 2022 · Negro mate · Placa ABC-123</p>
+                        </div>
+                        <div class="moto-stats">
+                            <div class="moto-stat-item">
+                                <div class="moto-stat-value">12.480</div>
+                                <div class="moto-stat-label">KILÓMETROS</div>
+                            </div>
+                            <div class="moto-stat-item">
+                                <div class="moto-stat-value">1.960</div>
+                                <div class="moto-stat-label">PRÓXIMO SERVICIO (KM)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACTIVIDAD RECIENTE Y SEGUIMIENTO EN TALLER -->
+                    <div class="panel-box">
+                        <div class="panel-box-header">
+                            <h2 class="panel-box-title">ACTIVIDAD RECIENTE Y ESTADO EN TALLER</h2>
+                            <a href="#" class="text-purple" style="font-size: 0.78rem; font-weight: 700;" onclick="switchTabByName('citas')">VER TODAS →</a>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-left">
+                                <div class="activity-date">
+                                    <strong>26 SEP</strong>
+                                    <span>08:00</span>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600;">Mantenimiento general</div>
+                                    <div class="text-muted" style="font-size: 0.82rem;">Honda CB500F · ABC-123 · Mecánico: Juan Pérez</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.75rem;">
+                                <span class="badge badge-purple">EN PROGRESO</span>
+                                <button class="btn btn-outline btn-sm" onclick="openTrackingDrawer('OT-1048', 'Mantenimiento general', 'En progreso (65%)', 'Cambio de aceite y filtro completado. Sincronizando inyección electrónica.')">Ver proceso</button>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-left">
+                                <div class="activity-date">
+                                    <strong style="color: var(--text-white);">18 JUN</strong>
+                                    <span>10:30</span>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600;">Cambio de pastillas</div>
+                                    <div class="text-muted" style="font-size: 0.82rem;">Honda CB500F · ABC-123 · Mecánico: Mario Gómez</div>
+                                </div>
+                            </div>
+                            <span class="badge badge-success">COMPLETADA</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 2: MIS CITAS Y AGENDAMIENTO ================= -->
+                <section id="tab-citas" class="view-section">
+                    <span class="eyebrow">AGENDAMIENTO ONLINE</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">MIS CITAS Y RESERVAS</h1>
+
+                    <div class="dashboard-split">
+                        <!-- Formulario de nueva cita -->
+                        <div class="panel-box">
+                            <div class="panel-box-header">
+                                <h2 class="panel-box-title">AGENDAR NUEVA CITA</h2>
+                            </div>
+                            <form onsubmit="event.preventDefault(); alert('Cita agendada exitosamente en Garage Evil.');">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Motocicleta</label>
+                                        <select class="form-control">
+                                            <option>Honda CB500F (ABC-123)</option>
+                                            <option>Registrar otra motocicleta...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Tipo de Servicio</label>
+                                        <select class="form-control">
+                                            <option>Mantenimiento General ($180.000)</option>
+                                            <option>Diagnóstico Digital ($65.000)</option>
+                                            <option>Frenos y Suspensión ($120.000)</option>
+                                            <option>Kit de Arrastre ($95.000)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Fecha deseada</label>
+                                        <input type="date" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Franja horaria</label>
+                                        <select class="form-control">
+                                            <option>08:00 AM</option>
+                                            <option>10:30 AM</option>
+                                            <option>02:00 PM</option>
+                                            <option>04:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Observaciones o falla reportada</label>
+                                    <textarea class="form-control" rows="3" placeholder="Ej. Ruido leve en el freno delantero al frenar en frío..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Confirmar Agendamiento</button>
+                            </form>
+                        </div>
+
+                        <!-- Estado actual -->
+                        <div class="panel-box">
+                            <div class="panel-box-header">
+                                <h2 class="panel-box-title">SEGUIMIENTO EN VIVO</h2>
+                            </div>
+                            <p class="text-muted" style="font-size:0.85rem; margin-bottom:1rem;">Orden activa: <strong class="text-purple">#OT-1048</strong></p>
+                            <div class="progress-group">
+                                <div class="progress-header"><span>1. Recepción e Inspección</span><span class="text-purple">LISTO</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width:100%; background:var(--purple-primary);"></div></div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="progress-header"><span>2. Ejecución Técnica</span><span class="text-purple">EN CURSO</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width:65%; background:var(--purple-light);"></div></div>
+                            </div>
+                            <div class="progress-group">
+                                <div class="progress-header"><span>3. Control de Calidad y Entrega</span><span>PENDIENTE</span></div>
+                                <div class="progress-track"><div class="progress-fill" style="width:0%; background:var(--status-success-text);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 3: COTIZADOR ================= -->
+                <section id="tab-cotizar" class="view-section">
+                    <span class="eyebrow">SIMULADOR DE COSTOS</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">COTIZAR SERVICIO Y REPUESTOS</h1>
+                    <div class="panel-box" style="max-width: 720px;">
+                        <div class="form-group">
+                            <label class="form-label">Selecciona los servicios requeridos</label>
+                            <select id="quote-service" class="form-control" onchange="calcularCotizacion()">
+                                <option value="180000">Mantenimiento General Preventivo — $180.000 COP</option>
+                                <option value="65000">Escáner y Diagnóstico Electrónico — $65.000 COP</option>
+                                <option value="140000">Sincronización + Limpieza de Inyectores — $140.000 COP</option>
+                                <option value="110000">Mantenimiento de Suspensión Delantera — $110.000 COP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Incluir repuestos originales estimados</label>
+                            <select id="quote-parts" class="form-control" onchange="calcularCotizacion()">
+                                <option value="0">Solo mano de obra ($0)</option>
+                                <option value="85000">Kit Aceite Sintético + Filtro Original (+$85.000 COP)</option>
+                                <option value="130000">Juego Pastillas Sinterizadas Delanteras (+$130.000 COP)</option>
+                                <option value="240000">Kit de Arrastre Completo (+$240.000 COP)</option>
+                            </select>
+                        </div>
+                        <div class="demo-box" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <div class="demo-box-title" style="margin-bottom:0.25rem;">TOTAL ESTIMADO</div>
+                                <div id="quote-total" style="font-family:var(--font-display); font-size:2.2rem; color:var(--purple-light);">$180.000 COP</div>
+                            </div>
+                            <button class="btn btn-primary" onclick="switchTabByName('citas')">Agendar con esta cotización</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 4: MI MOTOCICLETA ================= -->
+                <section id="tab-moto" class="view-section">
+                    <span class="eyebrow">FICHA TÉCNICA</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">MI MOTOCICLETA</h1>
+                    <div class="panel-box">
+                        <div class="form-row">
+                            <div class="form-group"><label class="form-label">Marca y Modelo</label><input type="text" class="form-control" value="Honda CB500F" readonly></div>
+                            <div class="form-group"><label class="form-label">Placa</label><input type="text" class="form-control" value="ABC-123" readonly></div>
+                            <div class="form-group"><label class="form-label">Año</label><input type="text" class="form-control" value="2022" readonly></div>
+                            <div class="form-group"><label class="form-label">Cilindraje</label><input type="text" class="form-control" value="471 cc" readonly></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 5: HISTORIAL ================= -->
+                <section id="tab-historial" class="view-section">
+                    <span class="eyebrow">REGISTRO DE MANTENIMIENTO</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">HISTORIAL DE SERVICIOS</h1>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Orden</th>
+                                    <th>Fecha</th>
+                                    <th>Servicio</th>
+                                    <th>Kilometraje</th>
+                                    <th>Valor</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-purple"><strong>OT-1048</strong></td>
+                                    <td>26 Sep 2026</td>
+                                    <td>Mantenimiento general</td>
+                                    <td>12.480 km</td>
+                                    <td>$265.000</td>
+                                    <td><span class="badge badge-purple">En progreso</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-purple"><strong>OT-0982</strong></td>
+                                    <td>18 Jun 2026</td>
+                                    <td>Cambio de pastillas</td>
+                                    <td>10.200 km</td>
+                                    <td>$130.000</td>
+                                    <td><span class="badge badge-success">Completada</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ================= SECCIÓN 6: MI PERFIL ================= -->
+                <section id="tab-perfil" class="view-section">
+                    <span class="eyebrow">DATOS PERSONALES</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">MI PERFIL</h1>
+                    <div class="panel-box" style="max-width:680px;">
+                        <form onsubmit="event.preventDefault(); alert('Datos actualizados.');">
+                            <div class="form-row">
+                                <div class="form-group"><label class="form-label">Nombre Completo</label><input type="text" class="form-control" value="Carlos Morales"></div>
+                                <div class="form-group"><label class="form-label">Teléfono</label><input type="tel" class="form-control" value="310 555 0192"></div>
+                            </div>
+                            <div class="form-group"><label class="form-label">Correo Electrónico</label><input type="email" class="form-control" value="carlos.morales@correo.com"></div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- DRAWER DE DETALLE DE PROCESO -->
+    <div id="trackingDrawer" class="drawer-backdrop" onclick="if(event.target===this) this.classList.remove('open')">
+        <div class="drawer-panel">
+            <div>
+                <span class="eyebrow">REPORTE DEL MECÁNICO EN TIEMPO REAL</span>
+                <h2 id="drawerOrden" style="font-size:2rem; margin-bottom:0.5rem;">OT-1048</h2>
+                <p id="drawerServicio" class="text-muted" style="margin-bottom:1.5rem;">Mantenimiento general</p>
+                <div class="demo-box">
+                    <div class="demo-box-title">ESTADO ACTUAL</div>
+                    <div id="drawerEstado" class="text-purple" style="font-weight:700; margin-bottom:0.75rem;">En progreso</div>
+                    <div class="demo-box-title">BITÁCORA TÉCNICA</div>
+                    <p id="drawerNota" style="font-size:0.9rem; color:var(--text-white);"></p>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-block" onclick="document.getElementById('trackingDrawer').classList.remove('open')">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId, el) {
+            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+            if (el) el.classList.add('active');
+        }
+        function switchTabByName(tabId) {
+            const links = document.querySelectorAll('.sidebar-link');
+            links.forEach(l => {
+                if (l.getAttribute('onclick')?.includes(tabId)) switchTab(tabId, l);
+            });
+        }
+        function calcularCotizacion() {
+            const s = parseInt(document.getElementById('quote-service').value);
+            const p = parseInt(document.getElementById('quote-parts').value);
+            document.getElementById('quote-total').textContent = '$' + (s + p).toLocaleString('es-CO') + ' COP';
+        }
+        function openTrackingDrawer(orden, servicio, estado, nota) {
+            document.getElementById('drawerOrden').textContent = orden;
+            document.getElementById('drawerServicio').textContent = servicio;
+            document.getElementById('drawerEstado').textContent = estado;
+            document.getElementById('drawerNota').textContent = nota;
+            document.getElementById('trackingDrawer').classList.add('open');
+        }
+    </script>
+</body>
+</html>
