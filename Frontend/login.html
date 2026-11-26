@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Iniciar Sesion | Garage Evil </title>
+
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+
+<body>
+    <main class="auth-layout">
+    <div class="auth-visual" style="background-image: url(../CSS/img/Logo.png);">
+        <div class="auth-visual-content">
+            <span class="brown">Tu taller de confianza</span>
+            <h2>BIENVENIDO</h2>
+        </div>
+    </div>
+
+    <div class="auth-panel">
+        <a href="index.html" class="back-link"> ← Volver al inicio </a>
+        <div class="auth-header">
+            <span class="eyebrow"> GARAGE EVIL </span>
+            <h1>INICIAR SESIÓN</h1>
+            <p>Accede a tu cuenta para gestionar tus citas y el historial de servicios</p>
+        </div>
+
+        <form action="dashboard.html">
+            <div class="form-group">
+                <label for="LoginCorreo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="LoginCorreo" placeholder="nombre@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="LoginPassword" class="form-label"> Contraseña </label>
+                <input type="password" class="form-control" id="LoginPassword" placeholder="••••••••" minlength="6" required>
+            </div>
+            <div class="form-helper">
+                <a href="#"> ¿Olvidaste tu contraseña ?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"> Ingresar </button>
+        </form>
+
+        <div class="demo-box">
+            <div class="demo-box-title" align="center"> ¿COMO DESEAS INGRESAR? </div>
+        </div>
+    </div>
+</main>
+    
+</body>
+</html>
