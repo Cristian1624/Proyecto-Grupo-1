@@ -1,9 +1,12 @@
 /* ==========================================================================
-   1. IMPORTACIÓN DE FUENTES Y VARIABLES GLOBALES (PALETA MORADO / NEGRO / BLANCO)
+   1. IMPORTACIÓN DE FUENTES, BOOTSTRAP 5.3.9, ICONOS Y VARIABLES GLOBALES
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css');
 
-:root {
+:root,
+[data-bs-theme="dark"] {
     /* Fondos Negros y Grises Oscuros */
     --bg-main: #09090b;          /* Negro profundo principal */
     --bg-secondary: #0f0f12;     /* Negro elevado (sidebar / secciones alternas) */
@@ -42,6 +45,22 @@
     --radius-md: 4px;
     --transition: all 0.2s ease;
     --sidebar-width: 260px;
+
+    /* Sincronización con Variables Nativas de Bootstrap 5.3+ */
+    --bs-body-bg: var(--bg-main);
+    --bs-body-color: var(--text-white);
+    --bs-body-font-family: var(--font-body);
+    --bs-primary: var(--purple-primary);
+    --bs-primary-rgb: 124, 58, 237;
+    --bs-secondary-bg: var(--bg-secondary);
+    --bs-tertiary-bg: var(--bg-card);
+    --bs-border-color: var(--border-color);
+    --bs-border-radius: var(--radius-sm);
+    --bs-border-radius-sm: var(--radius-sm);
+    --bs-border-radius-lg: var(--radius-md);
+    --bs-link-color: var(--purple-light);
+    --bs-link-hover-color: var(--purple-primary);
+    --bs-focus-ring-color: var(--purple-subtle);
 }
 
 /* ==========================================================================
@@ -76,6 +95,8 @@ a {
 
 ul {
     list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 img {
@@ -111,19 +132,19 @@ h1, h2, h3, h4, .font-display {
 }
 
 .text-purple {
-    color: var(--purple-light);
+    color: var(--purple-light) !important;
 }
 
 .text-purple-solid {
-    color: var(--purple-primary);
+    color: var(--purple-primary) !important;
 }
 
 .text-white {
-    color: var(--text-white);
+    color: var(--text-white) !important;
 }
 
 .text-muted {
-    color: var(--text-gray);
+    color: var(--text-gray) !important;
 }
 
 /* Subtítulo superior estilo "TALLER ESPECIALIZADO · BOGOTÁ, COLOMBIA" */
@@ -146,7 +167,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 /* ==========================================================================
-   4. BOTONES (ESTILO RECTANGULAR DE ALTO CONTRASTE)
+   4. BOTONES (ESTILO RECTANGULAR DE ALTO CONTRASTE + COMPATIBILIDAD BS5)
    ========================================================================== */
 .btn {
     display: inline-flex;
@@ -167,14 +188,22 @@ h1, h2, h3, h4, .font-display {
 }
 
 .btn-primary {
+    --bs-btn-bg: var(--purple-primary);
+    --bs-btn-border-color: var(--purple-primary);
+    --bs-btn-hover-bg: var(--purple-hover);
+    --bs-btn-hover-border-color: var(--purple-hover);
+    --bs-btn-active-bg: var(--purple-hover);
+    --bs-btn-active-border-color: var(--purple-hover);
     background-color: var(--purple-primary);
     color: var(--text-white);
     border-color: var(--purple-primary);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
     background-color: var(--purple-hover);
     border-color: var(--purple-hover);
+    color: var(--text-white);
     box-shadow: 0 0 20px var(--purple-glow);
 }
 
@@ -221,6 +250,7 @@ h1, h2, h3, h4, .font-display {
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-color);
     height: 76px;
+    padding: 0;
     display: flex;
     align-items: center;
 }
@@ -237,9 +267,14 @@ h1, h2, h3, h4, .font-display {
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    color: var(--text-white);
     display: flex;
     align-items: center;
     gap: 0.35rem;
+}
+
+.brand-logo:hover {
+    color: var(--text-white);
 }
 
 .brand-logo span {
@@ -258,6 +293,7 @@ h1, h2, h3, h4, .font-display {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-gray);
+    padding: 0;
 }
 
 .nav-link:hover,
@@ -354,6 +390,9 @@ h1, h2, h3, h4, .font-display {
 }
 
 .card {
+    --bs-card-bg: var(--bg-card);
+    --bs-card-border-color: var(--border-color);
+    --bs-card-border-radius: var(--radius-sm);
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
@@ -459,7 +498,7 @@ h1, h2, h3, h4, .font-display {
     font-size: 0.92rem;
 }
 
-/* Formularios e Inputs */
+/* Formularios e Inputs (compatibles con .form-control y .form-select de BS5) */
 .form-group {
     margin-bottom: 1.35rem;
 }
@@ -480,7 +519,8 @@ h1, h2, h3, h4, .font-display {
     margin-bottom: 0.5rem;
 }
 
-.form-control {
+.form-control,
+.form-select {
     width: 100%;
     padding: 0.9rem 1rem;
     background-color: var(--bg-input);
@@ -496,8 +536,11 @@ h1, h2, h3, h4, .font-display {
     color: var(--text-muted);
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     outline: none;
+    background-color: var(--bg-input);
+    color: var(--text-white);
     border-color: var(--purple-primary);
     box-shadow: 0 0 0 3px var(--purple-subtle);
 }
@@ -802,50 +845,21 @@ select.form-control {
     justify-content: space-between;
 }
 
-/* ==========================================================================
-   10. RESPONSIVE (MÓVILES Y TABLETS)
-   ========================================================================== */
-@media (max-width: 968px) {
-    .auth-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .auth-visual {
-        display: none;
-    }
-
-    .auth-panel {
-        padding: 2.5rem 1.5rem;
-    }
-
-    .sidebar {
-        transform: translateX(-100%);
-    }
-
-    .sidebar.open {
-        transform: translateX(0);
-    }
-
-    .admin-main {
-        margin-left: 0;
-    }
+/* Modales nativos de Bootstrap 5 adaptados al tema Garage Evil */
+.modal-content {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-white);
 }
 
-@media (max-width: 640px) {
-    .nav-menu {
-        display: none;
-    }
+.modal-header,
+.modal-footer {
+    border-color: var(--border-color);
+}
 
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-    }
-
-    /* ==========================================================================
-   11. ESTILOS ESPECÍFICOS: PORTALES GARAGE EVIL (CLIENTE, ADMIN Y EMPLEADO)
+/* ==========================================================================
+   10. ESTILOS ESPECÍFICOS: PORTALES GARAGE EVIL (CLIENTE, ADMIN Y EMPLEADO)
    ========================================================================== */
 
 /* Logo con isotipo morado */
@@ -1145,19 +1159,60 @@ select.form-control {
     display: block;
 }
 
+/* ==========================================================================
+   11. RESPONSIVE (MÓVILES Y TABLETS)
+   ========================================================================== */
 @media (max-width: 1100px) {
     .kpi-grid-5 {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .dashboard-split {
         grid-template-columns: 1fr;
     }
 }
 
+@media (max-width: 968px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-visual {
+        display: none;
+    }
+
+    .auth-panel {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .admin-main {
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 640px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
     .kpi-grid-5,
     .kpi-grid-2x2 {
         grid-template-columns: 1fr;
     }
-}
 }
