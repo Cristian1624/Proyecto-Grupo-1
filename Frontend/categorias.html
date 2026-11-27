@@ -61,7 +61,7 @@
             </header>
 
             <div class="admin-content">
-                <!-- Encabezado con migas de pan y botón -->
+                <!-- Encabezado con migas de pan y botón + CATEGORÍA -->
                 <div class="table-toolbar">
                     <div>
                         <span class="eyebrow">PANEL GENERAL / CATÁLOGO DE TALLER</span>
@@ -71,30 +71,33 @@
                     <button type="button" class="btn btn-primary" onclick="document.getElementById('catDrawer').classList.add('open')">+ NUEVA CATEGORÍA</button>
                 </div>
 
-                <!-- Buscador (misma idea de clase) -->
+                <!-- Buscador (misma estructura de clase) -->
                 <div class="table-toolbar">
                     <div class="search-box">
                         <input type="search" class="form-control" placeholder="Buscar categoría por nombre o código...">
                     </div>
                 </div>
 
-                <!-- Rejilla de tarjetas de Categorías -->
+                <!-- Rejilla de tarjetas de Categorías (como en clase) -->
                 <div class="grid-cards">
                     <!-- Categoría 1 -->
-                    <div class="card">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-                            <span class="badge badge-purple">CAT-01</span>
-                            <span class="badge badge-success">Activa</span>
-                        </div>
-                        <h2 class="card-title">Motor</h2>
-                        <p class="card-text">Reparación, sincronización y componentes internos del motor.</p>
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
-                            <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600;">4 subcategorías →</a>
-                            <div style="display:flex; gap:0.5rem;">
-                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
-                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
-                            </div>
-                        </div>
+                 <!-- Categoría 1 (Corregida) -->
+                <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+             <div>
+                   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                   <span class="badge badge-purple">CAT-01</span>
+                   <span class="badge badge-success">Activa</span>
+             </div>
+                     <h2 class="card-title">Motor</h2>
+                     <p class="card-text" style="margin-bottom:1rem;">Reparación, sincronización y componentes internos del motor.</p>
+                     <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600; display:inline-block;">4 subcategorías →</a>
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+        <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
+        <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
+    </div>
+</div>
                     </div>
 
                     <!-- Categoría 2 -->
@@ -148,7 +151,7 @@
                         </div>
                     </div>
 
-                    <!-- Categoría 5 (Inactiva como ejemplo en clase) -->
+                    <!-- Categoría 5 -->
                     <div class="card">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
                             <span class="badge badge-purple">CAT-05</span>
@@ -208,7 +211,7 @@
         </div>
     </div>
 
-    <!-- DRAWER: CONFIRMAR ELIMINACIÓN -->
+    <!-- DRAWER: CONFIRMAR ELIMINACIÓN (misma idea del modalEliminar de clase) -->
     <div id="deleteDrawer" class="drawer-backdrop" onclick="if(event.target===this) this.classList.remove('open')">
         <div class="drawer-panel">
             <div>
