@@ -3,7 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operaciones</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Inicio Garage Evil  Portal Cliente</title>
+    <link rel="stylesheet" href="../css/css/styles.css">
 </head>
 <body>
+    <div class="admin-layout">
+         <aside class="sidebar" id="menuLateral">
+        <div class="sidebar-header">
+            <div class="brand-logo">
+                <span class="brand-badge">G</span>
+                <span>Garage</span> Evil
+            </div>
+        </div>
+ 
+        <nav class="sidebar-nav">
+            <div class="sidebar-section-label">Mi portal</div>
+            <a href="inicio_cliente.html" class="sidebar-link active"><span class="nav-code">IN</span>Inicio</a>
+            <a href="operaciones.html" class="sidebar-link"><span class="nav-code">OP</span>Operaciones</a>
+            <a href="mis_citas.html" class="sidebar-link"><span class="nav-code">CI</span>Mis Citas</a>
+            <a href="mi_moto.html" class="sidebar-link"><span class="nav-code">MT</span>Mi Motocicleta</a>
+            <a href="historial.html" class="sidebar-link"><span class="nav-code">HI</span>Historial</a>
+            <a href="mi_perfil.html" class="sidebar-link"><span class="nav-code">PE</span>Mi Perfil</a>
+        </nav>
+ 
+        <div class="sidebar-footer">
+            <a href="login.html" class="btn btn-outline btn-sm btn-block">
+                <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+            </a>
+        </div>
+    </aside>
+    <main class="admin-main">
+        <header class="admin-topbar">
+            <button type="button" class="btn btn-outline btn-sm d-lg-none" id="btnMenu" aria-label="Abrir menú">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="user-chip ms-auto">
+                <div class="user-chip-info">
+                    <div class="user-chip-name">Carlos Morales</div>
+                    <div class="user-chip-role">Cliente activo</div>
+                </div>
+                <span class="avatar-circle">CM</span>
+            </div>
+        </header>
+        <div class="admin-content">
+            <span class="eyebrow">Portal del Cliente</span>
+            <h1 class="mb-4">Operaciones</h1>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="panel-box">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="badge badge-purple">UC04 / UC05</span>
+                            <h3 class="panel-box-title mb-0">Registrar y consultar vehículos</h3>
+                        </div>
+                        <h4 class="moto-banner-title fs-5">Honda CB500F · ABC-123</h4>
+                        <p class="text-muted small mb-4">Modelo 2022 · 12.480 km</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button type="button" class="btn btn-primary">+ Registrar vehículo</button>
+                            <button type="button" class="btn btn-outline text-purple">Actualizar datos</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="kpi-card">
+                    <div class="panel-box">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="badge badge-purple">UC07 / UC08</span>
+                            <h3 class="panel-box-title mb-0">crear cancelar y consultar agendamientos</h3>
+                        </div>
+                        <h4 class="moto-banner-title fs-5">26,sep-08:00</h4>
+                        <p class="text-muted small mb-3">agendada</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button type="button" class="btn btn-primary">+ nueva cita</button>
+                            <button type="button" class="btn btn-outline text-purple">cancelar cita</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="kpi-card">
+                    <div class="panel-box">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <span class="badge badge-purple">UC11 / UC12</span>
+                            <h3 class="panel-box-title mb-0">Consultar y decidir cotización</h3>
+                        </div>
+                        <h4 class="moto-banner-title fs-5">COT-2048 · Mantenimiento</h4>
+                        <p class="text-muted small mb-3">Aceite, filtros y mano de obra</p>
+                        <p class="text-muted small mb-3">Pendiente</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button type="button" class="btn btn-primary">+ nueva cita</button>
+                            <button type="button" class="btn btn-outline text-purple">cancelar cita</button>
+                        </div>
+                    </div>
+                </div>
+
+    </main>
+
+    </div>
+</body>
+ 

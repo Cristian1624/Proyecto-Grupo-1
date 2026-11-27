@@ -1,9 +1,12 @@
 /* ==========================================================================
-   1. IMPORTACIÓN DE FUENTES Y VARIABLES GLOBALES (PALETA MORADO / NEGRO / BLANCO)
+   1. IMPORTACIÓN DE FUENTES, BOOTSTRAP 5.3.9, ICONOS Y VARIABLES GLOBALES
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css');
 
-:root {
+:root,
+[data-bs-theme="dark"] {
     /* Fondos Negros y Grises Oscuros */
     --bg-main: #09090b;          /* Negro profundo principal */
     --bg-secondary: #0f0f12;     /* Negro elevado (sidebar / secciones alternas) */
@@ -15,7 +18,7 @@
     --purple-primary: #7c3aed;   /* Morado vibrante principal (botones CTA) */
     --purple-hover: #6d28d9;     /* Morado intenso para estado hover */
     --purple-light: #a78bfa;     /* Morado claro para textos destacados y enlaces */
-    --purple-subtle: rgba(124, 58, 237, 0.14);
+    --purple-subtle: rgba(124, 58, 237, 0.14); /* Fondo translúcido para badges/activos */
     --purple-glow: rgba(124, 58, 237, 0.35);
 
     /* Textos Blancos y Neutros */
@@ -42,6 +45,22 @@
     --radius-md: 4px;
     --transition: all 0.2s ease;
     --sidebar-width: 260px;
+
+    /* Sincronización con Variables Nativas de Bootstrap 5.3+ */
+    --bs-body-bg: var(--bg-main);
+    --bs-body-color: var(--text-white);
+    --bs-body-font-family: var(--font-body);
+    --bs-primary: var(--purple-primary);
+    --bs-primary-rgb: 124, 58, 237;
+    --bs-secondary-bg: var(--bg-secondary);
+    --bs-tertiary-bg: var(--bg-card);
+    --bs-border-color: var(--border-color);
+    --bs-border-radius: var(--radius-sm);
+    --bs-border-radius-sm: var(--radius-sm);
+    --bs-border-radius-lg: var(--radius-md);
+    --bs-link-color: var(--purple-light);
+    --bs-link-hover-color: var(--purple-primary);
+    --bs-focus-ring-color: var(--purple-subtle);
 }
 
 /* ==========================================================================
@@ -76,6 +95,8 @@ a {
 
 ul {
     list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 img {
@@ -111,19 +132,19 @@ h1, h2, h3, h4, .font-display {
 }
 
 .text-purple {
-    color: var(--purple-light);
+    color: var(--purple-light) !important;
 }
 
 .text-purple-solid {
-    color: var(--purple-primary);
+    color: var(--purple-primary) !important;
 }
 
 .text-white {
-    color: var(--text-white);
+    color: var(--text-white) !important;
 }
 
 .text-muted {
-    color: var(--text-gray);
+    color: var(--text-gray) !important;
 }
 
 /* Subtítulo superior estilo "TALLER ESPECIALIZADO · BOGOTÁ, COLOMBIA" */
@@ -146,7 +167,7 @@ h1, h2, h3, h4, .font-display {
 }
 
 /* ==========================================================================
-   4. BOTONES (ESTILO RECTANGULAR DE ALTO CONTRASTE)
+   4. BOTONES (ESTILO RECTANGULAR DE ALTO CONTRASTE + COMPATIBILIDAD BS5)
    ========================================================================== */
 .btn {
     display: inline-flex;
@@ -167,14 +188,22 @@ h1, h2, h3, h4, .font-display {
 }
 
 .btn-primary {
+    --bs-btn-bg: var(--purple-primary);
+    --bs-btn-border-color: var(--purple-primary);
+    --bs-btn-hover-bg: var(--purple-hover);
+    --bs-btn-hover-border-color: var(--purple-hover);
+    --bs-btn-active-bg: var(--purple-hover);
+    --bs-btn-active-border-color: var(--purple-hover);
     background-color: var(--purple-primary);
     color: var(--text-white);
     border-color: var(--purple-primary);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
     background-color: var(--purple-hover);
     border-color: var(--purple-hover);
+    color: var(--text-white);
     box-shadow: 0 0 20px var(--purple-glow);
 }
 
@@ -221,6 +250,7 @@ h1, h2, h3, h4, .font-display {
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border-color);
     height: 76px;
+    padding: 0;
     display: flex;
     align-items: center;
 }
@@ -237,9 +267,14 @@ h1, h2, h3, h4, .font-display {
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    color: var(--text-white);
     display: flex;
     align-items: center;
     gap: 0.35rem;
+}
+
+.brand-logo:hover {
+    color: var(--text-white);
 }
 
 .brand-logo span {
@@ -258,6 +293,7 @@ h1, h2, h3, h4, .font-display {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-gray);
+    padding: 0;
 }
 
 .nav-link:hover,
@@ -354,6 +390,9 @@ h1, h2, h3, h4, .font-display {
 }
 
 .card {
+    --bs-card-bg: var(--bg-card);
+    --bs-card-border-color: var(--border-color);
+    --bs-card-border-radius: var(--radius-sm);
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
@@ -459,7 +498,7 @@ h1, h2, h3, h4, .font-display {
     font-size: 0.92rem;
 }
 
-/* Formularios e Inputs */
+/* Formularios e Inputs (compatibles con .form-control y .form-select de BS5) */
 .form-group {
     margin-bottom: 1.35rem;
 }
@@ -480,7 +519,8 @@ h1, h2, h3, h4, .font-display {
     margin-bottom: 0.5rem;
 }
 
-.form-control {
+.form-control,
+.form-select {
     width: 100%;
     padding: 0.9rem 1rem;
     background-color: var(--bg-input);
@@ -496,8 +536,11 @@ h1, h2, h3, h4, .font-display {
     color: var(--text-muted);
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     outline: none;
+    background-color: var(--bg-input);
+    color: var(--text-white);
     border-color: var(--purple-primary);
     box-shadow: 0 0 0 3px var(--purple-subtle);
 }
@@ -802,9 +845,333 @@ select.form-control {
     justify-content: space-between;
 }
 
+/* Modales nativos de Bootstrap 5 adaptados al tema Garage Evil */
+.modal-content {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-white);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--border-color);
+}
+
 /* ==========================================================================
-   10. RESPONSIVE (MÓVILES Y TABLETS)
+   10. ESTILOS ESPECÍFICOS: PORTALES GARAGE EVIL (CLIENTE, ADMIN Y EMPLEADO)
    ========================================================================== */
+
+/* Logo con isotipo morado */
+.brand-badge {
+    width: 34px;
+    height: 34px;
+    background-color: var(--purple-primary);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    box-shadow: 0 0 14px var(--purple-glow);
+}
+
+/* Tarjeta de perfil en Sidebar (Admin) y Topbar (Cliente / Empleado) */
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-chip-info {
+    text-align: right;
+    line-height: 1.25;
+}
+
+.user-chip-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.user-chip-role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--purple-primary);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-square {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: var(--purple-primary);
+    color: var(--text-white);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Códigos de 2 letras en el menú lateral (IN, CI, MT, PG, JO...) */
+.nav-code {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    width: 24px;
+    text-align: left;
+    transition: var(--transition);
+}
+
+.sidebar-link.active .nav-code,
+.sidebar-link:hover .nav-code {
+    color: var(--purple-light);
+}
+
+/* Variantes de Grid para KPIs */
+.kpi-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card-neutral {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.kpi-card-neutral.accent-top {
+    border-top: 2px solid var(--purple-primary);
+}
+
+.kpi-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+}
+
+/* Tarjeta destacada de Motocicleta Principal (Portal Cliente) */
+.moto-banner {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.moto-banner-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--text-white);
+    margin: 0.25rem 0;
+}
+
+.moto-stats {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.moto-stat-item {
+    text-align: right;
+}
+
+.moto-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    color: var(--text-white);
+}
+
+.moto-stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* Listas de actividad y citas del día */
+.panel-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.5rem;
+}
+
+.panel-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.panel-box-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: var(--text-white);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.activity-date {
+    min-width: 72px;
+}
+
+.activity-date strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--purple-light);
+}
+
+.activity-date span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Split Layout Dashboard Admin (Citas de hoy + Resumen de estados) */
+.dashboard-split {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Barras de progreso (Resumen de Estados Admin) */
+.progress-group {
+    margin-bottom: 1rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin-bottom: 0.35rem;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-input);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 2px;
+}
+
+/* Badge de turno activo y selector inline de empleado */
+.shift-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    background-color: var(--status-success-bg);
+    color: var(--status-success-text);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+.status-select {
+    background-color: var(--bg-input);
+    color: var(--text-white);
+    border: 1px solid var(--border-light);
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--purple-primary);
+}
+
+/* Control de pestañas internas SPA */
+.view-section {
+    display: none;
+}
+
+.view-section.active {
+    display: block;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE (MÓVILES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .kpi-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-split {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 968px) {
     .auth-layout {
         grid-template-columns: 1fr;
@@ -842,5 +1209,10 @@ select.form-control {
 
     .hero-buttons .btn {
         width: 100%;
+    }
+
+    .kpi-grid-5,
+    .kpi-grid-2x2 {
+        grid-template-columns: 1fr;
     }
 }
