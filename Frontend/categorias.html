@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -55,119 +56,169 @@
                         <div style="font-size:0.72rem; color:var(--text-muted); text-transform:uppercase;">SÁBADO</div>
                         <div style="font-size:0.85rem; font-weight:600;">26 Sep 2026</div>
                     </div>
-                    <span class="badge badge-purple">4</span>
+                    <span class="badge badge-purple">5</span>
                 </div>
             </header>
 
             <div class="admin-content">
-                <!-- Encabezado con botón + CATEGORÍA -->
-                <div class="page-header-row">
+                <!-- Encabezado con migas de pan y botón -->
+                <div class="table-toolbar">
                     <div>
-                        <span class="eyebrow">GESTIÓN DE TALLER</span>
-                        <h1>CATEGORÍAS</h1>
-                        <p>Organiza el catálogo de servicios y repuestos.</p>
+                        <span class="eyebrow">PANEL GENERAL / CATÁLOGO DE TALLER</span>
+                        <h1>GESTIÓN DE CATEGORÍAS</h1>
+                        <p class="text-muted">Organiza el catálogo de servicios y repuestos del taller.</p>
                     </div>
-                    <button class="btn btn-primary" onclick="document.getElementById('catDrawer').classList.add('open')">+ CATEGORÍA</button>
+                    <button type="button" class="btn btn-primary" onclick="document.getElementById('catDrawer').classList.add('open')">+ NUEVA CATEGORÍA</button>
                 </div>
 
-                <!-- Tabla de Categorías -->
-                <div class="table-wrapper">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>CÓDIGO</th>
-                                <th>CATEGORÍA</th>
-                                <th>DESCRIPCIÓN</th>
-                                <th>REFERENCIAS</th>
-                                <th>ESTADO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="catTableBody">
-                            <tr>
-                                <td class="text-purple"><strong>CAT-01</strong></td>
-                                <td><strong>Motor</strong></td>
-                                <td class="text-muted">Reparación y componentes internos</td>
-                                <td class="text-muted">18</td>
-                                <td class="text-muted">Activa</td>
-                            </tr>
-                            <tr>
-                                <td class="text-purple"><strong>CAT-02</strong></td>
-                                <td><strong>Lubricación</strong></td>
-                                <td class="text-muted">Aceites, filtros y aditivos</td>
-                                <td class="text-muted">24</td>
-                                <td class="text-muted">Activa</td>
-                            </tr>
-                            <tr>
-                                <td class="text-purple"><strong>CAT-03</strong></td>
-                                <td><strong>Frenos</strong></td>
-                                <td class="text-muted">Pastillas, discos y líquidos</td>
-                                <td class="text-muted">16</td>
-                                <td class="text-muted">Activa</td>
-                            </tr>
-                            <tr>
-                                <td class="text-purple"><strong>CAT-04</strong></td>
-                                <td><strong>Transmisión</strong></td>
-                                <td class="text-muted">Cadenas, piñones y embragues</td>
-                                <td class="text-muted">12</td>
-                                <td class="text-muted">Activa</td>
-                            </tr>
-                            <tr>
-                                <td class="text-purple"><strong>CAT-05</strong></td>
-                                <td><strong>Eléctrico</strong></td>
-                                <td class="text-muted">Baterías, luces y sensores</td>
-                                <td class="text-muted">21</td>
-                                <td class="text-muted">Activa</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Buscador (misma idea de clase) -->
+                <div class="table-toolbar">
+                    <div class="search-box">
+                        <input type="search" class="form-control" placeholder="Buscar categoría por nombre o código...">
+                    </div>
+                </div>
+
+                <!-- Rejilla de tarjetas de Categorías -->
+                <div class="grid-cards">
+                    <!-- Categoría 1 -->
+                    <div class="card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                            <span class="badge badge-purple">CAT-01</span>
+                            <span class="badge badge-success">Activa</span>
+                        </div>
+                        <h2 class="card-title">Motor</h2>
+                        <p class="card-text">Reparación, sincronización y componentes internos del motor.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+                            <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600;">4 subcategorías →</a>
+                            <div style="display:flex; gap:0.5rem;">
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 2 -->
+                    <div class="card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                            <span class="badge badge-purple">CAT-02</span>
+                            <span class="badge badge-success">Activa</span>
+                        </div>
+                        <h2 class="card-title">Lubricación</h2>
+                        <p class="card-text">Aceites sintéticos, semisintéticos, filtros y aditivos.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+                            <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600;">3 subcategorías →</a>
+                            <div style="display:flex; gap:0.5rem;">
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 3 -->
+                    <div class="card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                            <span class="badge badge-purple">CAT-03</span>
+                            <span class="badge badge-success">Activa</span>
+                        </div>
+                        <h2 class="card-title">Frenos</h2>
+                        <p class="card-text">Pastillas, bandas, discos, bombas y líquidos de freno.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+                            <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600;">3 subcategorías →</a>
+                            <div style="display:flex; gap:0.5rem;">
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 4 -->
+                    <div class="card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                            <span class="badge badge-purple">CAT-04</span>
+                            <span class="badge badge-success">Activa</span>
+                        </div>
+                        <h2 class="card-title">Transmisión</h2>
+                        <p class="card-text">Kits de arrastre, cadenas, piñones y sistemas de embrague.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+                            <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600;">2 subcategorías →</a>
+                            <div style="display:flex; gap:0.5rem;">
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 5 (Inactiva como ejemplo en clase) -->
+                    <div class="card">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                            <span class="badge badge-purple">CAT-05</span>
+                            <span class="badge badge-danger">Inactiva</span>
+                        </div>
+                        <h2 class="card-title">Eléctrico</h2>
+                        <p class="card-text">Baterías, bombillería LED, estatores y sensores.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+                            <a href="sub_cateogorias.html" class="text-purple" style="font-size:0.85rem; font-weight:600;">3 subcategorías →</a>
+                            <div style="display:flex; gap:0.5rem;">
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('catDrawer').classList.add('open')">Editar</button>
+                                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('deleteDrawer').classList.add('open')">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta punteada para agregar categoría (misma idea de clase) -->
+                    <button type="button" class="card" style="border: 2px dashed var(--border-light); background: transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 210px; cursor: pointer;" onclick="document.getElementById('catDrawer').classList.add('open')">
+                        <span class="text-purple" style="font-size: 2rem; line-height: 1; margin-bottom: 0.5rem;">+</span>
+                        <span class="font-display" style="font-size: 1rem; letter-spacing: 0.08em; color: var(--text-gray);">AGREGAR CATEGORÍA</span>
+                    </button>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- DRAWER NUEVA CATEGORÍA -->
+    <!-- DRAWER: CREAR / EDITAR CATEGORÍA -->
     <div id="catDrawer" class="drawer-backdrop" onclick="if(event.target===this) this.classList.remove('open')">
         <div class="drawer-panel">
             <div>
                 <span class="eyebrow">CATÁLOGO DE TALLER</span>
-                <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Nueva Categoría</h2>
-                <form onsubmit="agregarCategoria(event)">
+                <h2 style="font-size:1.8rem; margin-bottom:1.5rem;">Datos de la Categoría</h2>
+                <form>
                     <div class="form-group">
-                        <label class="form-label">Código</label>
-                        <input id="newCatCode" type="text" class="form-control" value="CAT-06" required>
+                        <label for="catCodigo" class="form-label">Código</label>
+                        <input id="catCodigo" type="text" class="form-control" placeholder="Ej: CAT-06" maxlength="10" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Nombre de la Categoría</label>
-                        <input id="newCatName" type="text" class="form-control" placeholder="Ej. Suspensión" required>
+                        <label for="catNombre" class="form-label">Nombre de la Categoría</label>
+                        <input id="catNombre" type="text" class="form-control" placeholder="Ej: Suspensión" maxlength="50" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Descripción</label>
-                        <textarea id="newCatDesc" class="form-control" rows="3" placeholder="Breve descripción de los repuestos o servicios..." required></textarea>
+                        <label for="catDescripcion" class="form-label">Descripción</label>
+                        <textarea id="catDescripcion" class="form-control" rows="3" placeholder="¿Qué servicios o repuestos incluye?" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Guardar Categoría</button>
+                    <div class="form-group">
+                        <label for="catEstado" class="form-label">Estado</label>
+                        <select id="catEstado" class="form-control">
+                            <option value="Activa" selected>Activa</option>
+                            <option value="Inactiva">Inactiva</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" onclick="document.getElementById('catDrawer').classList.remove('open')">Guardar Categoría</button>
                 </form>
             </div>
-            <button class="btn btn-outline btn-block" onclick="document.getElementById('catDrawer').classList.remove('open')">Cancelar</button>
+            <button type="button" class="btn btn-outline btn-block" onclick="document.getElementById('catDrawer').classList.remove('open')">Cancelar</button>
         </div>
     </div>
 
-    <script>
-        function agregarCategoria(e) {
-            e.preventDefault();
-            const code = document.getElementById('newCatCode').value;
-            const name = document.getElementById('newCatName').value;
-            const desc = document.getElementById('newCatDesc').value;
-            const row = `<tr>
-                <td class="text-purple"><strong>${code}</strong></td>
-                <td><strong>${name}</strong></td>
-                <td class="text-muted">${desc}</td>
-                <td class="text-muted">0</td>
-                <td class="text-muted">Activa</td>
-            </tr>`;
-            document.getElementById('catTableBody').insertAdjacentHTML('beforeend', row);
-            document.getElementById('catDrawer').classList.remove('open');
-            e.target.reset();
-        }
-    </script>
+    <!-- DRAWER: CONFIRMAR ELIMINACIÓN -->
+    <div id="deleteDrawer" class="drawer-backdrop" onclick="if(event.target===this) this.classList.remove('open')">
+        <div class="drawer-panel">
+            <div>
+                <span class="eyebrow" style="color: var(--status-danger-text);">ACCIÓN IRREVERSIBLE</span>
+                <h2 style="font-size:1.8rem; margin-bottom:1rem;">¿Eliminar esta categoría?</h2>
+                <p class="text-muted" style="margin-bottom:2rem;">También se eliminarán las subcategorías asociadas a esta categoría en el sistema.</p>
+                <button type="button" class="btn btn-primary btn-block" style="background-color: #dc2626; border-color: #dc2626;" onclick="document.getElementById('deleteDrawer').classList.remove('open')">Sí, eliminar</button>
+            </div>
+            <button type="button" class="btn btn-outline btn-block" onclick="document.getElementById('deleteDrawer').classList.remove('open')">Cancelar</button>
+        </div>
+    </div>
 </body>
 </html>
