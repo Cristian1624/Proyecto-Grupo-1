@@ -5,14 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citas | Garage Evil - Administrador</title>
     <link rel="stylesheet" href="../css/css/styles.css">
+    
 </head>
 <body>
 
 <div class="admin-layout">
     <aside class="sidebar" id="menuLateral">
+
         <div class="sidebar-header">
             <div class="brand-logo"><span class="brand-badge">G</span><span>Garage</span> Evil</div>
         </div>
+        <header class="admin-topbar">
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-outline btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral" aria-label="Abrir menú">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="user-chip px-4 py-3 border-bottom">
+                    <span class="avatar-square">LG</span>
+                    <div class="avatar">
+                        <div class="user-chip-name">Laura Gómez</div>
+                        <div class="user-chip-role">Administrador</div>
+                    </div>
+                </div>
+            </div>    
+        </header>
+        
         <nav class="sidebar-nav">
                 <a href="dashboard.html" class="sidebar-link active"><span class="nav-code">PG</span> PANEL GENERAL</a>
                 <a href="clientes.html" class="sidebar-link"><span class="nav-code">CL</span> CLIENTES</a>
@@ -30,20 +47,6 @@
     </aside>
 
     <main class="admin-main">
-
-        <header class="admin-topbar">
-            <button type="button" class="btn btn-outline btn-sm d-lg-none" id="btnMenu" aria-label="Abrir menú">
-                <i class="bi bi-list"></i>
-            </button>
-            <div class="user-chip ms-auto">
-                <div class="user-chip-info">
-                    <div class="user-chip-name">Laura Gómez</div>
-                    <div class="user-chip-role">Administrador</div>
-                </div>
-                <span class="avatar-square">LG</span>
-            </div>
-        </header>
-
         <div class="admin-content">
 
             <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
@@ -285,6 +288,112 @@
             <button type="button" class="btn btn-outline btn-block" id="btnEliminarDrawer" style="color:var(--status-danger-text);"><i class="bi bi-trash"></i> Eliminar cita</button>
         </div>
     </div>
+    
 </div>
+
+<script>
+/* ============ 5 CLIENTES DE EJEMPLO ============ */
+let clientes = [
+    { id: 1, nombre: 'Carlos Morales', documento: '1020345678', correo: 'carlos.morales@correo.com', telefono: '3001234567', ciudad: 'Bogotá', estado: 'Activo',   moto: 'Honda CB500F',  placa: 'ABC-123' },
+    { id: 2, nombre: 'Andrea Rojas',   documento: '1032456789', correo: 'andrea.rojas@correo.com',   telefono: '3109876543', ciudad: 'Bogotá', estado: 'Activo',   moto: 'Yamaha MT-03',  placa: 'MTR-031' },
+    { id: 3, nombre: 'Julián Pérez',   documento: '80123456',   correo: 'julian.perez@correo.com',   telefono: '3201112233', ciudad: 'Soacha', estado: 'Activo',   moto: 'Kawasaki Z400', placa: 'KLM-456' },
+    { id: 4, nombre: 'Sofía Herrera',  documento: '1018765432', correo: 'sofia.herrera@correo.com',  telefono: '3153334455', ciudad: 'Chía',   estado: 'Activo',   moto: 'Suzuki Gixxer', placa: 'PQR-321' },
+    { id: 5, nombre: 'Miguel Torres',  documento: '79456123',   correo: 'miguel.torres@correo.com',  telefono: '3174445566', ciudad: 'Bogotá', estado: 'Inactivo', moto: 'Honda XR150L',  placa: 'HXR-150' }
+];
+let siguienteId = 6;
+
+const $ = (id) => document.getElementById(id);
+const esc = (t) => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const iniciales = (n) => n.split(' ').map(p => p[0]).slice(0, 2).join('').toUpperCase();
+const campos = ['nombre','documento','correo','telefono','ciudad','estado','moto','placa'];
+
+/* ============ TABLA + KPIs ============ */
+function pintar() {
+    const t = $('buscar').value.trim().toLowerCase(), e = $('filtroEstado').value;
+    const lista = clientes.filter(c => (!e || c.estado === e) &&
+        (c.nombre + ' ' + c.documento + ' ' + c.placa).toLowerCase().includes(t));
+
+    $('tablaClientes').innerHTML = lista.map(c => `
+        <tr data-id="${c.id}">
+            <td>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="avatar-circle">${iniciales(c.nombre)}</span>
+                    <div><strong>${esc(c.nombre)}</strong><br><small class="text-muted">${esc(c.ciudad)}</small></div>
+                </div>
+            </td>
+            <td>CC ${esc(c.documento)}</td>
+            <td>${esc(c.correo)}<br><small class="text-muted">${esc(c.telefono)}</small></td>
+            <td>${c.moto ? `${esc(c.moto)} <small class="text-muted">· ${esc(c.placa)}</small>` : '<span class="text-muted">Sin moto</span>'}</td>
+            <td><span class="badge ${c.estado === 'Activo' ? 'badge-success' : 'badge-danger'}">${c.estado}</span></td>
+            <td class="text-end text-nowrap">
+                <button type="button" class="btn btn-outline btn-sm" data-accion="editar" title="Editar"><i class="bi bi-pencil"></i></button>
+                <button type="button" class="btn btn-outline btn-sm" data-accion="eliminar" title="Eliminar" style="color:var(--status-danger-text);"><i class="bi bi-trash"></i></button>
+            </td>
+        </tr>`).join('');
+
+    $('contador').textContent = lista.length ? `Mostrando ${lista.length} de ${clientes.length} clientes` : 'No hay clientes que coincidan.';
+    const pad = (x) => String(x).padStart(2, '0');
+    $('kpiTotal').textContent = pad(clientes.length);
+    $('kpiActivos').textContent = pad(clientes.filter(c => c.estado === 'Activo').length);
+    $('kpiInactivos').textContent = pad(clientes.filter(c => c.estado === 'Inactivo').length);
+}
+
+function avisar(msg) {
+    $('aviso').innerHTML = `<div class="panel-box py-2"><span class="badge badge-success me-2">Listo</span>${esc(msg)}</div>`;
+    setTimeout(() => $('aviso').innerHTML = '', 3500);
+}
+
+/* ============ FORMULARIO ============ */
+function abrirForm(c) {
+    $('formCliente').reset();
+    $('errorForm').textContent = '';
+    $('clienteId').value = c ? c.id : '';
+    $('tituloForm').textContent = c ? 'Editar cliente' : 'Nuevo cliente';
+    if (c) campos.forEach(k => $(k).value = c[k]);
+    $('panelForm').open = true;
+    $('panelForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function cerrarForm() { $('panelForm').open = false; $('tituloForm').textContent = 'Nuevo cliente'; }
+
+$('btnNuevo').addEventListener('click', () => { $('formCliente').reset(); $('clienteId').value = ''; $('errorForm').textContent = ''; $('tituloForm').textContent = 'Nuevo cliente'; });
+$('btnCancelar').addEventListener('click', cerrarForm);
+
+$('formCliente').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = {}; campos.forEach(k => d[k] = $(k).value.trim());
+    d.placa = d.placa.toUpperCase();
+    const id = +$('clienteId').value;
+
+    if (!d.nombre || !d.documento || !d.correo || !d.telefono || !d.ciudad) { $('errorForm').textContent = 'Completa los campos obligatorios.'; return; }
+    if (!/^\d{5,12}$/.test(d.documento))   { $('errorForm').textContent = 'El documento debe tener solo números (5 a 12 dígitos).'; return; }
+    if (!/^3\d{9}$/.test(d.telefono))      { $('errorForm').textContent = 'El celular debe tener 10 dígitos y empezar por 3.'; return; }
+    if (!/^\S+@\S+\.\S+$/.test(d.correo))  { $('errorForm').textContent = 'El correo no es válido.'; return; }
+    if (clientes.some(c => c.id !== id && c.documento === d.documento)) { $('errorForm').textContent = 'Ya existe un cliente con ese documento.'; return; }
+    if ((d.moto && !d.placa) || (!d.moto && d.placa)) { $('errorForm').textContent = 'Escribe la moto y su placa, o deja ambas vacías.'; return; }
+
+    if (id) { Object.assign(clientes.find(c => c.id === id), d); avisar('Cliente actualizado.'); }
+    else    { clientes.push({ id: siguienteId++, ...d });         avisar('Cliente creado.'); }
+    cerrarForm(); pintar();
+});
+
+/* ============ EDITAR / ELIMINAR ============ */
+$('tablaClientes').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-accion]'); if (!btn) return;
+    const c = clientes.find(x => x.id === +btn.closest('tr').dataset.id);
+    if (btn.dataset.accion === 'editar') abrirForm(c);
+    else if (confirm(`¿Eliminar a ${c.nombre}?`)) { clientes = clientes.filter(x => x.id !== c.id); pintar(); avisar('Cliente eliminado.'); }
+});
+
+$('buscar').addEventListener('input', pintar);
+$('filtroEstado').addEventListener('change', pintar);
+
+/* Menú lateral en celular */
+$('btnMenu').addEventListener('click', () => $('menuLateral').classList.toggle('open'));
+document.querySelector('.admin-main').addEventListener('click', (e) => {
+    if (!e.target.closest('#btnMenu')) $('menuLateral').classList.remove('open');
+});
+
+pintar();
+</script>
 </body>
 </html>
