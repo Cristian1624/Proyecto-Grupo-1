@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -98,26 +98,31 @@
         </div>
         <!-- KPIs -->
         <section class="kpi-grid">
-          <div class="kpi-card">
-            <div class="kpi-label">Total Registradas</div>
-            <div class="kpi-value">148</div>
-            <div class="kpi-sub">+6 este mes</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-label">En Taller Hoy</div>
-            <div class="kpi-value">12</div>
-            <div class="kpi-sub">En diagnóstico o servicio</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-label">Listas para Entrega</div>
-            <div class="kpi-value">5</div>
-            <div class="kpi-sub">Esperando retiro de cliente</div>
-          </div>
-          <div class="kpi-card">
-            <div class="kpi-label">Alto Cilindraje</div>
-            <div class="kpi-value">64</div>
-            <div class="kpi-sub">Mayores a 500 cc</div>
-          </div>
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <a href="clientes.html">
+  <span class="kpi-label d-block">Total registrados</span>
+  <span class="kpi-value d-block">148</span>
+  <span class="kpi-sub d-block">Accede a clientes</span>
+  </a>
+</button>
+         
+        </button>
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <a href="citas.html">
+  <span class="kpi-label d-block">Listas para entrega</span>
+  <span class="kpi-value d-block">5</span>
+  <span class="kpi-sub d-block">Esperando retiro del cliente</span>
+  </a>
+</button>
+         </button>
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <a href="citas.html">
+  <span class="kpi-label d-block">Citas pendientes</span>
+  <span class="kpi-value d-block">10</span>
+  <span class="kpi-sub d-block">Accede a citas</span>
+  </a>
+</button>
+
         </section>
 
         <!-- Barra de búsqueda y filtros -->
@@ -183,6 +188,327 @@
                 <td>
                   <div class="d-flex gap-2">
                     <button type="button" class="btn btn-purple-outline btn-sm btn-ver-drawer" title="Ver ficha 
+                    técnica">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" data-bs-toggle="modal" data-bs-target="#modalNuevaMoto" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr
+                data-estado="Lista"
+                data-placa="XLM-92F"
+                data-modelo="Kawasaki Z400"
+                data-cilindraje="399 cc"
+                data-anio="2022"
+                data-km="21.850 km"
+                data-color="Verde / Negro"
+                data-chasis="JKAEX8B19NDA04512"
+                data-propietario="Laura Sofía Gómez"
+                data-telefono="320 814 3310"
+                data-servicio="Mantenimiento preventivo 20.000 km"
+              >
+                <td><span class="badge badge-purple">XLM-92F</span></td>
+                <td>
+                  <strong>Kawasaki Z400</strong>
+                  <div class="text-muted" style="font-size: 0.8rem;">Sport Naked · Verde/Negro</div>
+                </td>
+                <td>399 cc</td>
+                <td>2022</td>
+                <td>21.850 km</td>
+                <td>Laura Gómez</td>
+                <td><span class="badge badge-success">Lista</span></td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-purple-outline btn-sm btn-ver-drawer" title="Ver ficha técnica">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" data-bs-toggle="modal" data-bs-target="#modalNuevaMoto" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr
+                data-estado="Activa"
+                data-placa="BGT-15E"
+                data-modelo="BMW F 850 GS"
+                data-cilindraje="853 cc"
+                data-anio="2024"
+                data-km="6.400 km"
+                data-color="Gris Racing"
+                data-chasis="WB10B0905PZ981204"
+                data-propietario="Julián David Rojas"
+                data-telefono="315 602 7749"
+                data-servicio="Sin orden activa (Último: Cambio de aceite)"
+              >
+                <td><span class="badge badge-purple">BGT-15E</span></td>
+                <td>
+                  <strong>BMW F 850 GS</strong>
+                  <div class="text-muted" style="font-size: 0.8rem;">Adventure · Gris Racing</div>
+                </td>
+                <td>853 cc</td>
+                <td>2024</td>
+                <td>6.400 km</td>
+                <td>Julián Rojas</td>
+                <td><span class="badge badge-purple">Activa</span></td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-purple-outline btn-sm btn-ver-drawer" title="Ver ficha técnica">
+                       <i class="bi bi-eye"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" data-bs-toggle="modal" data-bs-target="#modalNuevaMoto" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr
+                data-estado="En Taller"
+                data-placa="RPV-73D"
+                data-modelo="Bajaj Pulsar NS 200 FI"
+                data-cilindraje="199 cc"
+                data-anio="2021"
+                data-km="38.900 km"
+                data-color="Negro Eclipse"
+                data-chasis="MD2A36FZ4MCM54321"
+                data-propietario="Mateo Restrepo"
+                data-telefono="301 923 1184"
+                data-servicio="Revisión sistema de refrigeración y frenos ABS"
+              >
+                <td><span class="badge badge-purple">RPV-73D</span></td>
+                <td>
+                  <strong>Bajaj Pulsar NS 200 FI</strong>
+                  <div class="text-muted" style="font-size: 0.8rem;">Street · Negro Eclipse</div>
+                </td>
+                <td>199 cc</td>
+                <td>2021</td>
+                <td>38.900 km</td>
+                <td>Mateo Restrepo</td>
+                <td><span class="badge badge-warning">En Taller</span></td>
+                <td>
+                  <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-purple-outline btn-sm btn-ver-drawer" title="Ver ficha técnica">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" data-bs-toggle="modal" data-bs-target="#modalNuevaMoto" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== DRAWER LATERAL DE DETALLE ==================== -->
+  <div class="drawer-backdrop" id="drawerMoto">
+    <div class="drawer-panel">
+      <div>
+        <div class="d-flex justify-content-between align-items-start mb-4 pb-3" style="border-bottom: 1px solid var(--border-color);">
+          <div>
+            <span class="eyebrow mb-1" id="drawerPlaca">KWR-48G</span>
+            <h3 class="mb-0" id="drawerModelo">Yamaha MT-07</h3>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" id="btnCerrarDrawer">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <div class="mb-4">
+          <div class="kpi-label">Propietario Asignado</div>
+          <div class="text-white fw-semibold" id="drawerPropietario">Carlos Andrés Mendoza</div>
+          <div class="text-muted" style="font-size: 0.85rem;" id="drawerTelefono">310 458 9921</div>
+        </div>
+
+        <div class="panel-box mb-4">
+          <div class="panel-box-header">
+              <span class="panel-box-title">Ficha Técnica</span>
+          </div>
+          <div class="d-flex justify-content-between py-2" style="border-bottom: 1px solid var(--border-color);">
+            <span class="text-muted">Cilindraje</span>
+            <strong id="drawerCilindraje">689 cc</strong>
+          </div>
+          <div class="d-flex justify-content-between py-2" style="border-bottom: 1px solid var(--border-color);">
+            <span class="text-muted">Año / Modelo</span>
+            <strong id="drawerAnio">2023</strong>
+          </div>
+          <div class="d-flex justify-content-between py-2" style="border-bottom: 1px solid var(--border-color);">
+            <span class="text-muted">Kilometraje Actual</span>
+            <strong id="drawerKm">14.200 km</strong>
+          </div>
+          <div class="d-flex justify-content-between py-2" style="border-bottom: 1px solid var(--border-color);">
+            <span class="text-muted">Color</span>
+            <strong id="drawerColor">Negro Mate</strong>
+          </div>
+          <div class="d-flex justify-content-between pt-2">
+            <span class="text-muted">VIN / Chasis</span>
+            <strong style="font-size: 0.82rem;" id="drawerChasis">JYARM04E000019283</strong>
+          </div>
+        </div>
+
+        <div class="panel-box">
+          <div class="panel-box-header">
+            <span class="panel-box-title">Última Intervención</span>
+          </div>
+          <p class="card-text mb-0" id="drawerServicio">Sincronización y cambio de kit de arrastre</p>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column gap-2 mt-4">
+        <a href="citas.html" class="btn btn-primary btn-block">
+          <i class="bi bi-calendar-plus"></i> Agendar Cita de Taller
+        </a>
+        <button type="button" class="btn btn-outline btn-block" id="btnCerrarDrawerFooter">
+          Cerrar Panel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL REGISTRAR / EDITAR MOTO ==================== -->
+  <div class="modal fade" id="modalNuevaMoto" tabindex="-1" aria-labelledby="modalNuevaMotoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalNuevaMotoLabel">Registrar Motocicleta</h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <form id="formMoto">
+          <div class="modal-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="motoPlaca">Placa *</label>
+                <input type="text" id="motoPlaca" class="form-control text-uppercase" placeholder="Ej: KWR-48G" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="motoPropietario">Cliente Propietario *</label>
+                <select id="motoPropietario" class="form-select" required>
+                      <option value="">Seleccione un cliente...</option>
+                  <option value="1">Carlos Andrés Mendoza — CC 1018452190</option>
+                  <option value="2">Laura Sofía Gómez — CC 1020789341</option>
+                  <option value="3">Julián David Rojas — CC 80194822</option>
+                  <option value="4">Mateo Restrepo — CC 1032490112</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="motoMarca">Marca *</label>
+                <input type="text" id="motoMarca" class="form-control" placeholder="Ej: Yamaha, Kawasaki, BMW..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="motoModelo">Línea / Modelo *</label>
+                <input type="text" id="motoModelo" class="form-control" placeholder="Ej: MT-07, Z400, Pulsar NS 200" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="motoCilindraje">Cilindraje (cc) *</label>
+                <input type="number" id="motoCilindraje" class="form-control" placeholder="Ej: 689" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="motoAnio">Año *</label>
+                <input type="number" id="motoAnio" class="form-control" placeholder="Ej: 2024" min="1980" max="2027" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="motoKm">Kilometraje Actual</label>
+                <input type="number" id="motoKm" class="form-control" placeholder="Ej: 14200">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="motoColor">Color</label>
+                <input type="text" id="motoColor" class="form-control" placeholder="Ej: Negro Mate">
+              </div>
+            </div>
+
+            <div class="form-group mb-0">
+              <label class="form-label" for="motoChasis">Número de Chasis / VIN</label>
+              <input type="text" id="motoChasis" class="form-control text-uppercase" placeholder="17 caracteres alfanuméricos">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-check2"></i> Guardar Motocicleta
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3.9 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Lógica UI (Sidebar móvil, filtros en vivo y Drawer de detalle) -->
+  <script>
+    const sidebar = document.getElementById('sidebar');
+      const btnToggleSidebar = document.getElementById('btnToggleSidebar');
+    if (btnToggleSidebar) {
+      btnToggleSidebar.addEventListener('click', () => sidebar.classList.toggle('open'));
+    }
+
+    // Filtro por texto y estado
+    const inputBuscar = document.getElementById('inputBuscarMoto');
+    const filtroEstado = document.getElementById('filtroEstado');
+    const filas = document.querySelectorAll('#tablaMotos tbody tr');
+
+    function filtrarTabla() {
+      const texto = inputBuscar.value.toLowerCase().trim();
+      const estado = filtroEstado.value;
+
+      filas.forEach(fila => {
+        const coincideTexto = fila.innerText.toLowerCase().includes(texto);
+        const coincideEstado = !estado || fila.dataset.estado === estado;
+        fila.style.display = (coincideTexto && coincideEstado) ? '' : 'none';
+      });
+    }
+
+    inputBuscar.addEventListener('input', filtrarTabla);
+    filtroEstado.addEventListener('change', filtrarTabla);
+
+    // Drawer de ficha técnica
+    const drawer = document.getElementById('drawerMoto');
+    const cerrarDrawer = () => drawer.classList.remove('open');
+
+    document.querySelectorAll('.btn-ver-drawer').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const fila = e.currentTarget.closest('tr');
+        document.getElementById('drawerPlaca').textContent = fila.dataset.placa;
+        document.getElementById('drawerModelo').textContent = fila.dataset.modelo;
+        document.getElementById('drawerPropietario').textContent = fila.dataset.propietario;
+        document.getElementById('drawerTelefono').textContent = fila.dataset.telefono;
+        document.getElementById('drawerCilindraje').textContent = fila.dataset.cilindraje;
+        document.getElementById('drawerAnio').textContent = fila.dataset.anio;
+        document.getElementById('drawerKm').textContent = fila.dataset.km;
+        document.getElementById('drawerColor').textContent = fila.dataset.color;
+        document.getElementById('drawerChasis').textContent = fila.dataset.chasis;
+        document.getElementById('drawerServicio').textContent = fila.dataset.servicio;
+        drawer.classList.add('open');
+      });
+    });
+
+    document.getElementById('btnCerrarDrawer').addEventListener('click', cerrarDrawer);
+    document.getElementById('btnCerrarDrawerFooter').addEventListener('click', cerrarDrawer);
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) cerrarDrawer();
+    });
+  </script>
 
       
 </body>

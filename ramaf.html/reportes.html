@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel General Admin | Garage Evil</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ====================================================================
+         SIDEBAR LATERAL
+         ==================================================================== -->
+    <aside class="sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="brand-logo">
+          <span class="brand-badge">GE</span>
+          GARAGE <span>EVIL</span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link"><span class="nav-code">PG</span> PANEL GENERAL</a>
+        <a href="clientes.html" class="sidebar-link"><span class="nav-code">CL</span> CLIENTES</a>
+        <a href="motocicletas.html" class="sidebar-link"><span class="nav-code">MT</span> MOTOCICLETAS</a>
+        <a href="citas.html" class="sidebar-link"><span class="nav-code">CI</span> CITAS</a>
+        <a href="servicios.html" class="sidebar-link"><span class="nav-code">SE</span> SERVICIOS</a>
+        <a href="categorias.html" class="sidebar-link"><span class="nav-code">CA</span> CATEGORÍAS</a>
+        <a href="sub_cateogorias.html" class="sidebar-link"><span class="nav-code">SC</span> SUBCATEGORÍAS</a>
+        <a href="repuestos.html" class="sidebar-link"><span class="nav-code">RP</span> REPUESTOS</a>
+        <a href="reportes.html" class="sidebar-link active"><span class="nav-code">RE</span> REPORTES</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-chip justify-content-between">
+          <div class="d-flex align-items-center gap-2">
+            <div class="avatar-square">AD</div>
+            <div class="user-chip-info text-start">
+              <div class="user-chip-name">Administrador</div>
+              <div class="user-chip-role">Garage Evil · Bogotá</div>
+            </div>
+          </div>
+          <a href="login.html" class="text-muted" title="Cerrar sesión">
+            <i class="bi bi-box-arrow-right fs-5"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         CONTENEDOR PRINCIPAL
+         ==================================================================== -->
+    <main class="admin-main">
+
+      <!-- Barra superior -->
+      <header class="admin-topbar">
+        <div class="d-flex align-items-center gap-3">
+          <button type="button" class="btn btn-outline btn-sm d-lg-none" onclick="document.getElementById('adminSidebar').classList.toggle('open')">
+            <i class="bi bi-list"></i>
+          </button>
+          <div>
+            <span class="text-muted small text-uppercase">Administración / Reportes</span>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge badge-purple">Periodo: Noviembre 2026</span>
+        </div>
+      </header>
+
+      <!-- Área de contenido -->
+      <div class="admin-content">
+
+        <!-- 1. Encabezado y filtros -->
+        <div class="table-toolbar">
+          <div>
+            <span class="eyebrow mb-1">Módulo Analítico · Garage Evil</span>
+            <h1 class="section-title mb-0">Reportes y Rendimiento</h1>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-end gap-2">
+            <div>
+              <label for="rep-desde" class="form-label">Desde</label>
+              <input type="date" id="rep-desde" class="form-control form-control-sm" value="2026-11-01">
+            </div>
+            <div>
+              <label for="rep-hasta" class="form-label">Hasta</label>
+              <input type="date" id="rep-hasta" class="form-control form-control-sm" value="2026-11-30">
+            </div>
+            <div>
+              <label for="rep-tipo" class="form-label">Categoría</label>
+              <select id="rep-tipo" class="form-select form-select-sm">
+                <option value="todos">Todos los movimientos</option>
+                <option value="servicios">Mano de obra / Servicios</option>
+                <option value="repuestos">Venta de repuestos</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="bi bi-funnel"></i> Filtrar
+            </button>
+            <button type="button" class="btn btn-purple-outline btn-sm">
+              <i class="bi bi-file-earmark-spreadsheet"></i> Exportar
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Tarjetas KPI interactivas -->
+        <div class="kpi-grid">
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <span class="kpi-label d-block">Ingresos del Periodo</span>
+            <span class="kpi-value d-block">$14.850.000</span>
+            <span class="kpi-sub text-purple d-block">+14.2% vs mes anterior</span>
+          </button>
+
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <span class="kpi-label d-block">Órdenes Finalizadas</span>
+            <span class="kpi-value d-block">68</span>
+            <span class="kpi-sub d-block">94% entregadas a tiempo</span>
+          </button>
+
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <span class="kpi-label d-block">Ticket Promedio</span>
+            <span class="kpi-value d-block">$218.380</span>
+            <span class="kpi-sub d-block">Por motocicleta atendida</span>
+          </button>
+
+          <button type="button" class="kpi-card btn-ver-drawer w-100 text-start">
+            <span class="kpi-label d-block">Repuestos Facturados</span>
+            <span class="kpi-value d-block">142</span>
+            <span class="kpi-sub d-block">3 referencias con stock bajo</span>
+          </button>
+        </div>
+
+        <!-- 3. Bloque analítico dividido -->
+        <div class="dashboard-split mb-4">
+
+          <!-- Ingresos por servicio -->
+          <div class="panel-box">
+            <div class="panel-box-header">
+              <h2 class="panel-box-title mb-0">Ingresos por Tipo de Servicio</h2>
+              <span class="badge badge-purple">Top 4 Categorías</span>
+            </div>
+
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Sincronización e Inyección Electrónica</span>
+                <span class="text-white">$5.640.000 (38%)</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 38%; background-color: var(--purple-primary);"></div>
+              </div>
+            </div>
+
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Mantenimiento Preventivo y Cambio de Aceite</span>
+                <span class="text-white">$4.158.000 (28%)</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 28%; background-color: var(--purple-light);"></div>
+              </div>
+            </div>
+
+            <div class="progress-group">
+              <div class="progress-header">
+                <span>Kit de Arrastre, Frenos y Suspensión</span>
+                <span class="text-white">$3.267.000 (22%)</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 22%; background-color: var(--status-success-text);"></div>
+              </div>
+            </div>
+
+            <div class="progress-group mb-0">
+              <div class="progress-header">
+                <span>Diagnóstico Eléctrico y Escáner</span>
+                <span class="text-white">$1.785.000 (12%)</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 12%; background-color: var(--status-warning-text);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Productividad técnicos -->
+          <div class="panel-box">
+            <div class="panel-box-header">
+              <h2 class="panel-box-title mb-0">Productividad Técnicos</h2>
+              <span class="text-muted small">Noviembre</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-left">
+                <div class="avatar-square">CM</div>
+                <div>
+                  <strong class="d-block text-white">Carlos Mendoza</strong>
+                  <span class="text-muted small">29 órdenes completadas</span>
+                </div>
+              </div>
+              <span class="badge badge-success">$6.420.000</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-left">
+                <div class="avatar-square">AR</div>
+                <div>
+                  <strong class="d-block text-white">Andrés Rojas</strong>
+                  <span class="text-muted small">24 órdenes completadas</span>
+                </div>
+              </div>
+              <span class="badge badge-purple">$5.180.000</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-left">
+                <div class="avatar-square">JP</div>
+                <div>
+                  <strong class="d-block text-white">Julián Pardo</strong>
+                  <span class="text-muted small">15 órdenes completadas</span>
+                </div>
+              </div>
+              <span class="badge badge-warning">$3.250.000</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 4. Tabla detallada de facturación -->
+        <div class="panel-box">
+          <div class="panel-box-header flex-wrap gap-2">
+            <h2 class="panel-box-title mb-0">Detalle de Órdenes Facturadas</h2>
+            <div class="search-box">
+              <input type="text" class="form-control form-control-sm" placeholder="Buscar por placa, cliente o servicio...">
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Orden</th>
+                  <th>Fecha</th>
+                  <th>Cliente / Motocicleta</th>
+                  <th>Servicio Realizado</th>
+                  <th>Técnico</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="btn-ver-drawer">
+                  <td class="text-purple fw-semibold">#ORD-1048</td>
+                  <td>27/11/2026</td>
+                  <td>
+                    <strong class="d-block">Mateo Vargas</strong>
+                    <span class="text-muted small">Yamaha MT-03 · KTR-48G</span>
+                  </td>
+                  <td>Sincronización + Filtro de aire</td>
+                  <td>Carlos Mendoza</td>
+                  <td class="fw-semibold">$340.000</td>
+                  <td><span class="badge badge-success">Pagada</span></td>
+                </tr>
+                <tr class="btn-ver-drawer">
+                  <td class="text-purple fw-semibold">#ORD-1047</td>
+                  <td>26/11/2026</td>
+                  <td>
+                    <strong class="d-block">Laura Gómez</strong>
+                    <span class="text-muted small">KTM Duke 390 · MNV-92F</span>
+                  </td>
+                  <td>Cambio Kit de Arrastre + Pastillas</td>
+                  <td>Andrés Rojas</td>
+                  <td class="fw-semibold">$520.000</td>
+                  <td><span class="badge badge-success">Pagada</span></td>
+                </tr>
+                <tr class="btn-ver-drawer">
+                  <td class="text-purple fw-semibold">#ORD-1046</td>
+                  <td>25/11/2026</td>
+                  <td>
+                    <strong class="d-block">Sebastián Ruiz</strong>
+                    <span class="text-muted small">Bajaj Dominar 400 · PLX-19D</span>
+                  </td>
+                  <td>Mantenimiento Preventivo 15.000 km</td>
+                  <td>Julián Pardo</td>
+                  <td class="fw-semibold">$265.000</td>
+                  <td><span class="badge badge-warning">Pendiente Pago</span></td>
+                </tr>
+                <tr class="btn-ver-drawer">
+                  <td class="text-purple fw-semibold">#ORD-1045</td>
+                  <td>24/11/2026</td>
+                  <td>
+                    <strong class="d-block">Daniela Torres</strong>
+                    <span class="text-muted small">Suzuki Gixxer 250 · RTY-83E</span>
+                  </td>
+                  <td>Diagnóstico sistema eléctrico</td>
+                  <td>Carlos Mendoza</td>
+                  <td class="fw-semibold">$110.000</td>
+                  <td><span class="badge badge-danger">Anulada</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>
